@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
-@section('title', 'Interpretasi Hasil Wellbeing')
-@section('page-title', 'Interpretasi Hasil')
+@section('title', 'Interpretasi Hasil Resiliensi')
+@section('page-title', 'Interpretasi Hasil Resiliensi')
 
 @section('header-actions')
 <a href="{{ route('admin.interpretations.create') }}" class="btn-primary">
@@ -13,7 +13,7 @@
 @section('content')
 <div class="space-y-6 animate-fade-in">
     <div class="card p-6">
-        <p class="text-sm text-slate-500 mb-6">Interpretasi hasil digunakan untuk mengklasifikasikan total skor wellbeing konseli ke dalam level-level kesehatan mental tertentu beserta rekomendasi tindak lanjutnya.</p>
+        <p class="text-sm text-slate-500 mb-6">Interpretasi hasil digunakan untuk mengklasifikasikan total skor instrumen resiliensi konseli ke dalam kategori tingkat ketangguhan mental tertentu beserta rekomendasi tindak lanjutnya.</p>
 
         @if($interpretations->isEmpty())
             <div class="text-center py-12">

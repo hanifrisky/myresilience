@@ -7,8 +7,8 @@
 <div class="max-w-3xl mx-auto space-y-6 animate-fade-in">
     <div class="card p-6">
         <div class="flex items-center justify-between mb-6">
-            <h3 class="font-bold text-slate-800 text-lg">Edit Materi Suku {{ $tribe->name }}</h3>
-            <a href="{{ route('admin.tribes.show', $tribe) }}" class="text-sm text-slate-500 hover:text-blue-600 transition-colors">Kembali ke Suku</a>
+            <h3 class="font-bold text-slate-800 text-lg">Edit Materi — {{ $tribe->name }}</h3>
+            <a href="{{ route('admin.tribes.show', $tribe) }}" class="text-sm text-slate-500 hover:text-blue-600 transition-colors">Kembali ke Paket Modul</a>
         </div>
 
         <form action="{{ route('admin.tribes.materials.update', [$tribe, $material]) }}" method="POST" class="space-y-6">
@@ -21,14 +21,14 @@
 
                 <!-- Title -->
                 <div>
-                    <label for="title" class="form-label">Judul Materi</label>
+                    <label for="title" class="form-label">Judul Materi / Sesi Self-Help</label>
                     <input type="text" 
                            id="title" 
                            name="title" 
                            value="{{ old('title', $material->title) }}" 
                            required 
                            class="form-input" 
-                           placeholder="Contoh: Filosofi Alon-alon Waton Kelakon" />
+                           placeholder="Contoh: Mengenali Kekuatan Diri & Harapan Masa Depan" />
                     @error('title')
                         <p class="form-error">{{ $message }}</p>
                     @enderror
@@ -36,13 +36,13 @@
 
                 <!-- Values -->
                 <div>
-                    <label for="values" class="form-label">Nilai-Nilai Budaya (Koma Terpisah)</label>
+                    <label for="values" class="form-label">Aspek / Fokus Resiliensi (Koma Terpisah)</label>
                     <input type="text" 
                            id="values" 
                            name="values" 
                            value="{{ old('values', $material->values) }}" 
                            class="form-input" 
-                           placeholder="Contoh: Kesabaran, Ketekunan, Kehati-hatian" />
+                           placeholder="Contoh: Optimisme, Efikasi Diri, Regulasi Emosi" />
                     @error('values')
                         <p class="form-error">{{ $message }}</p>
                     @enderror
@@ -50,19 +50,19 @@
 
                 <!-- Description -->
                 <div>
-                    <label for="description" class="form-label">Deskripsi & Makna Filosofis</label>
+                    <label for="description" class="form-label">Deskripsi & Panduan Pengantar Materi</label>
                     <textarea id="description" 
                               name="description" 
                               rows="4" 
                               class="form-input" 
-                              placeholder="Jelaskan makna dibalik kearifan budaya ini...">{!! old('description', $material->description) !!}</textarea>
+                              placeholder="Jelaskan pengantar materi serta kaitannya dalam membantu remaja menemukan solusi dan meningkatkan resiliensi...">{!! old('description', $material->description) !!}</textarea>
                     @error('description')
                         <p class="form-error">{{ $message }}</p>
                     @enderror
                 </div>
             </div>
 
-            <!-- Section 2: WDEP Questions -->
+            <!-- Section 2: SFBC Questions -->
             @php
                 $oldQuestions = old('questions');
                 if ($oldQuestions) {
@@ -110,7 +110,7 @@
                     if (this.questions[category].length > 1) {
                         this.questions[category].splice(index, 1);
                     } else {
-                        alert('Minimal harus ada 1 pertanyaan untuk kategori ini.');
+                        alert('Minimal harus ada 1 pertanyaan untuk tahap ini.');
                     }
                 },
                 getGlobalIndex(category, localIndex) {
@@ -123,16 +123,16 @@
                     return offset + localIndex;
                 }
             }">
-                <h4 class="font-bold text-slate-800 text-sm border-b border-slate-100 pb-2">2. Pertanyaan Refleksi WDEP</h4>
-                <p class="text-xs text-slate-400">Tentukan pertanyaan pemandu kognitif untuk masing-masing pilar WDEP. Anda dapat menambahkan lebih dari satu pertanyaan per kategori.</p>
+                <h4 class="font-bold text-slate-800 text-sm border-b border-slate-100 pb-2">2. Pertanyaan Eksplorasi Solusi (SFBC)</h4>
+                <p class="text-xs text-slate-400">Tentukan pertanyaan pemandu eksplorasi berfokus solusi (Solution-Focused Brief Counseling) untuk masing-masing tahapan. Anda dapat menambahkan lebih dari satu pertanyaan per tahap.</p>
 
                 <div class="space-y-6">
-                    {{-- Wants (W) --}}
+                    {{-- Stage 1 (W) --}}
                     <div class="p-5 bg-slate-50 border border-slate-100 rounded-2xl space-y-4">
                         <div class="flex items-center justify-between border-b border-slate-200/60 pb-3 mb-2">
                             <div class="flex items-center gap-2">
-                                <span class="w-6 h-6 rounded bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center">W</span>
-                                <span class="text-xs font-bold text-slate-700">Wants (Keinginan atau Harapan)</span>
+                                <span class="w-6 h-6 rounded bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center">1</span>
+                                <span class="text-xs font-bold text-slate-700">Goal Setting & Miracle Question (Harapan & Masa Depan Terbaik)</span>
                             </div>
                             <button type="button" @click="addQuestion('W')" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
@@ -160,18 +160,18 @@
                                               required 
                                               rows="2" 
                                               class="form-input text-xs" 
-                                              placeholder="Contoh: Apa keinginan atau tujuan yang ingin kamu capai dalam hidup saat ini?"></textarea>
+                                              placeholder="Contoh: Jika malam ini terjadi keajaiban dan tantangan yang kamu hadapi teratasi, perubahan positif apa yang pertama kali kamu sadari besok pagi?"></textarea>
                                 </div>
                             </template>
                         </div>
                     </div>
 
-                    {{-- Doing (D) --}}
+                    {{-- Stage 2 (D) --}}
                     <div class="p-5 bg-slate-50 border border-slate-100 rounded-2xl space-y-4">
                         <div class="flex items-center justify-between border-b border-slate-200/60 pb-3 mb-2">
                             <div class="flex items-center gap-2">
-                                <span class="w-6 h-6 rounded bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center">D</span>
-                                <span class="text-xs font-bold text-slate-700">Doing (Tindakan atau Aksi Nyata)</span>
+                                <span class="w-6 h-6 rounded bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center">2</span>
+                                <span class="text-xs font-bold text-slate-700">Exception & Strengths (Kekuatan Diri & Pengalaman Berhasil)</span>
                             </div>
                             <button type="button" @click="addQuestion('D')" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
@@ -199,18 +199,18 @@
                                               required 
                                               rows="2" 
                                               class="form-input text-xs" 
-                                              placeholder="Contoh: Langkah-langkah nyata apa yang sedang kamu lakukan untuk mencapai keinginan tersebut?"></textarea>
+                                              placeholder="Contoh: Kapan situasi terasa sedikit lebih baik, dan kekuatan diri apa yang telah membantumu bertahan sejauh ini?"></textarea>
                                 </div>
                             </template>
                         </div>
                     </div>
 
-                    {{-- Evaluation (E) --}}
+                    {{-- Stage 3 (E) --}}
                     <div class="p-5 bg-slate-50 border border-slate-100 rounded-2xl space-y-4">
                         <div class="flex items-center justify-between border-b border-slate-200/60 pb-3 mb-2">
                             <div class="flex items-center gap-2">
-                                <span class="w-6 h-6 rounded bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center">E</span>
-                                <span class="text-xs font-bold text-slate-700">Evaluation (Evaluasi Tindakan)</span>
+                                <span class="w-6 h-6 rounded bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center">3</span>
+                                <span class="text-xs font-bold text-slate-700">Scaling Question (Skala Kemajuan & Keyakinan Diri)</span>
                             </div>
                             <button type="button" @click="addQuestion('E')" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
@@ -238,18 +238,18 @@
                                               required 
                                               rows="2" 
                                               class="form-input text-xs" 
-                                              placeholder="Contoh: Apakah langkah yang kamu lakukan saat ini sudah selaras dengan kearifan lokal kesabaran?"></textarea>
+                                              placeholder="Contoh: Pada skala 1 hingga 10, di angka berapa posisimu saat ini dan apa yang membuatmu berada di angka tersebut?"></textarea>
                                 </div>
                             </template>
                         </div>
                     </div>
 
-                    {{-- Planning (P) --}}
+                    {{-- Stage 4 (P) --}}
                     <div class="p-5 bg-slate-50 border border-slate-100 rounded-2xl space-y-4">
                         <div class="flex items-center justify-between border-b border-slate-200/60 pb-3 mb-2">
                             <div class="flex items-center gap-2">
-                                <span class="w-6 h-6 rounded bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center">P</span>
-                                <span class="text-xs font-bold text-slate-700">Planning (Rencana Masa Depan)</span>
+                                <span class="w-6 h-6 rounded bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center">4</span>
+                                <span class="text-xs font-bold text-slate-700">Action Plan (Langkah Kecil Menuju Solusi)</span>
                             </div>
                             <button type="button" @click="addQuestion('P')" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
@@ -277,7 +277,7 @@
                                               required 
                                               rows="2" 
                                               class="form-input text-xs" 
-                                              placeholder="Contoh: Rencana tindakan kecil dan realistis apa yang akan kamu lakukan selanjutnya?"></textarea>
+                                              placeholder="Contoh: Langkah kecil dan realistis apa yang akan kamu lakukan dalam 24-48 jam ke depan untuk naik 1 angka pada skala kemajuanmu?"></textarea>
                                 </div>
                             </template>
                         </div>

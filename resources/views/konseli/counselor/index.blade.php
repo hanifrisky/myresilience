@@ -6,7 +6,7 @@
 <div class="space-y-6 animate-fade-in pb-16">
     <div class="border-b border-slate-200 pb-4">
         <h2 class="text-2xl font-bold text-slate-800">Pilih Konselor Anda</h2>
-        <p class="text-sm text-slate-500 mt-1">Pilih konselor yang akan mendampingi perjalanan bimbingan dan memberikan feedback terhadap lembar refleksi kognitif Anda.</p>
+        <p class="text-sm text-slate-500 mt-1">Pilih konselor yang akan mendampingi sesi cybercounseling dan memberikan umpan balik terhadap hasil sesi self-help berfokus solusi Anda.</p>
     </div>
 
     @if($counselors->isEmpty())

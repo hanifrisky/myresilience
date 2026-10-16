@@ -1,6 +1,6 @@
 @extends('layouts.konseli')
 
-@section('title', 'Mengisi Kuesioner Wellbeing')
+@section('title', 'Mengisi Instrumen Resiliensi')
 
 @section('content')
 @php
@@ -104,7 +104,7 @@
                 <span class="text-xs font-bold bg-blue-50 text-blue-700 px-2.5 py-1 rounded-lg border border-blue-100 uppercase tracking-wider">
                     {{ str_replace('_', ' ', strtoupper($type)) }}
                 </span>
-                <h3 class="font-extrabold text-slate-800 text-lg mt-2">Indeks Kesejahteraan Psikologis</h3>
+                <h3 class="font-extrabold text-slate-800 text-lg mt-2">Instrumen Resiliensi</h3>
             </div>
             
             {{-- Saving status badge --}}

@@ -13,7 +13,7 @@
 @section('content')
 <div class="space-y-6 animate-fade-in">
     <div class="card p-6">
-        <p class="text-sm text-slate-500 mb-6">Grup pilihan jawaban digunakan untuk mengelompokkan opsi jawaban kuesioner wellbeing beserta bobot skornya masing-masing.</p>
+        <p class="text-sm text-slate-500 mb-6">Grup pilihan jawaban digunakan untuk mengelompokkan opsi jawaban instrumen resiliensi beserta bobot skornya masing-masing.</p>
 
         @if($groups->isEmpty())
             <div class="text-center py-12">

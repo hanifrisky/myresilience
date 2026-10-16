@@ -1,7 +1,7 @@
 @extends('layouts.konselor')
 
-@section('title', 'Hasil Wellbeing Konseli')
-@section('page-title', 'Hasil Wellbeing: ' . $user->name)
+@section('title', 'Hasil Resiliensi Konseli')
+@section('page-title', 'Hasil Resiliensi: ' . $user->name)
 
 @section('header-actions')
 <a href="{{ route('konselor.dashboard') }}" class="btn-secondary">Kembali</a>
@@ -17,7 +17,7 @@
         <div class="card p-6 bg-white border border-slate-200/80 flex flex-col justify-between">
             <div>
                 <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                    <h3 class="font-extrabold text-slate-800 text-lg">Hasil Pre-Test Wellbeing</h3>
+                    <h3 class="font-extrabold text-slate-800 text-lg">Hasil Pre-Test Resiliensi</h3>
                     <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-lg border border-blue-100 font-bold uppercase tracking-wider">Awal</span>
                 </div>
 
@@ -55,7 +55,7 @@
         <div class="card p-6 bg-white border border-slate-200/80 flex flex-col justify-between">
             <div>
                 <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                    <h3 class="font-extrabold text-slate-800 text-lg">Hasil Post-Test Wellbeing</h3>
+                    <h3 class="font-extrabold text-slate-800 text-lg">Hasil Post-Test Resiliensi</h3>
                     <span class="bg-indigo-50 text-indigo-700 text-xs px-2.5 py-1 rounded-lg border border-indigo-100 font-bold uppercase tracking-wider">Akhir</span>
                 </div>
 

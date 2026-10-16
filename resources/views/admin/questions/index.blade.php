@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
-@section('title', 'Soal Instrumen Wellbeing')
-@section('page-title', 'Soal Instrumen')
+@section('title', 'Soal Instrumen Resiliensi')
+@section('page-title', 'Soal Instrumen Resiliensi')
 
 @section('header-actions')
 <div class="flex items-center gap-3">
@@ -24,8 +24,8 @@
 <div class="space-y-6 animate-fade-in">
     <div class="table-container">
         <div class="p-6 border-b border-slate-200/60 bg-white">
-            <h3 class="font-bold text-slate-800 text-lg">Daftar Pertanyaan Kuesioner</h3>
-            <p class="text-sm text-slate-500 mt-1">Daftar pertanyaan yang akan dikerjakan konseli untuk mengukur tingkat Kesejahteraan Psikologis (Wellbeing) mereka.</p>
+            <h3 class="font-bold text-slate-800 text-lg">Daftar Pertanyaan Instrumen Resiliensi</h3>
+            <p class="text-sm text-slate-500 mt-1">Daftar pertanyaan yang akan dikerjakan konseli untuk mengukur tingkat Resiliensi mereka (sebelum dan sesudah mengikuti sesi self-help).</p>
         </div>
 
         @if($questions->isEmpty())

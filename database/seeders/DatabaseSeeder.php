@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
     {
         // 1. Create Admin
         User::firstOrCreate(
-            ['email' => 'admin@temansebayaku.com'],
+            ['email' => 'admin@myresilience.com'],
             [
-                'name' => 'Administrator',
+                'name' => 'Administrator MY RESILIENCE',
                 'password' => bcrypt('password'),
                 'role' => 'admin',
             ]
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
 
         // 3. Create Konseli
         User::firstOrCreate(
-            ['email' => 'konseli@temansebayaku.com'],
+            ['email' => 'konseli@myresilience.com'],
             [
                 'name' => 'Andi Wijaya',
                 'password' => bcrypt('password'),
@@ -39,27 +39,27 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // 4. Create Interpretations
+        // 4. Create Interpretations (Instrumen Resiliensi)
         $interpretations = [
             [
                 'min_score' => 30,
                 'max_score' => 69,
-                'description' => 'Kesejahteraan Psikologis Rendah. Anda mungkin sedang menghadapi tekanan berat atau merasa kurang mendapat dukungan. Sangat disarankan untuk melakukan konseling dengan Konselor Anda.'
+                'description' => 'Resiliensi Rendah (Kerentanan Psikologis Tinggi). Kamu mungkin sedang menghadapi tekanan berat dan merasa kesulitan menemukan jalan keluar. Jangan khawatir, kamu tidak sendirian! Sangat disarankan untuk mengikuti sesi Self-Help berfokus solusi secara bertahap dan mengkomunikasikan hasilnya dengan Konselor serta menghubungi konselor sekolah untuk sesi lanjutan.'
             ],
             [
                 'min_score' => 70,
                 'max_score' => 109,
-                'description' => 'Kesejahteraan Psikologis Sedang. Anda memiliki ketahanan mental yang cukup baik, namun masih ada area yang dapat dioptimalkan melalui self-help dan diskusi bersama teman.'
+                'description' => 'Resiliensi Sedang. Kamu telah memiliki modal ketangguhan diri yang cukup baik untuk bertahan dalam situasi sulit, namun masih dapat terus dioptimalkan. Mari eksplorasi kekuatan dirimu dan rancang langkah-langkah solusi konkret melalui modul Self-Help serta diskusikan dengan Konselormu.'
             ],
             [
                 'min_score' => 110,
                 'max_score' => 150,
-                'description' => 'Kesejahteraan Psikologis Tinggi. Selamat! Anda memiliki kesehatan mental dan emosional yang sangat stabil serta mampu menjalin hubungan sosial yang positif.'
+                'description' => 'Resiliensi Tinggi. Selamat! Kamu memiliki tingkat ketangguhan mental dan emosional yang sangat baik, mampu berfokus pada solusi, serta adaptif dalam menghadapi tantangan. Terus pertahankan kebiasaan positifmu dan komunikasikan perkembanganmu bersama Konselor.'
             ]
         ];
 
         foreach ($interpretations as $interp) {
-            Interpretation::firstOrCreate(
+            Interpretation::updateOrCreate(
                 [
                     'min_score' => $interp['min_score'],
                     'max_score' => $interp['max_score']
@@ -70,22 +70,10 @@ class DatabaseSeeder extends Seeder
             );
         }
 
-        // 5. Create Madura Self-Help
-        $this->call(MaduraSelfHelpSeeder::class);
+        // 5. Create SFBC Resilience Self-Help Module
+        $this->call(ResilienceSelfHelpSeeder::class);
 
-        // 6. Create Bugis-Makassar Self-Help
-        $this->call(BugisMakassarSelfHelpSeeder::class);
-
-        // 7. Create Jawa Self-Help
-        $this->call(JawaSelfHelpSeeder::class);
-
-        // 8. Create Minang-Padang Self-Help
-        $this->call(MinangPadangSelfHelpSeeder::class);
-
-        // 9. Create Sasak-Lombok Self-Help
-        $this->call(SasakLombokSelfHelpSeeder::class);
-
-        // 10. Create Wellbeing Custom Scale Questions (Positif/Negatif)
+        // 6. Create Resilience Scale Questions (Positif/Negatif)
         $this->call(WellbeingQuestionSeeder::class);
     }
 }

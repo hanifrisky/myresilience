@@ -1,12 +1,12 @@
 @extends('layouts.konseli')
 
-@section('title', 'Kuesioner Wellbeing')
+@section('title', 'Instrumen Resiliensi')
 
 @section('content')
 <div class="space-y-8 animate-fade-in pb-16">
     <div class="border-b border-slate-200 pb-4">
-        <h2 class="text-2xl font-bold text-slate-800">Instrumen Kesejahteraan Psikologis (Wellbeing)</h2>
-        <p class="text-sm text-slate-500 mt-1">Ukur tingkat kesejahteraan psikologis Anda melalui dua tahap kuesioner terstandar.</p>
+        <h2 class="text-2xl font-bold text-slate-800">Instrumen Resiliensi</h2>
+        <p class="text-sm text-slate-500 mt-1">Ukur tingkat ketangguhan (resiliensi) psikologis Anda sebelum dan setelah mengikuti sesi self-help.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -25,8 +25,8 @@
                     @endif
                 </div>
 
-                <h3 class="font-extrabold text-slate-800 text-xl mb-2">Pre-Test Wellbeing</h3>
-                <p class="text-sm text-slate-500 leading-relaxed mb-6">Dilakukan di awal program sebelum membaca modul bimbingan ataupun berdiskusi dengan Konselor Anda.</p>
+                <h3 class="font-extrabold text-slate-800 text-xl mb-2">Pre-Test Resiliensi</h3>
+                <p class="text-sm text-slate-500 leading-relaxed mb-6">Dilakukan sebelum mengikuti sesi self-help untuk memetakan tingkat resiliensi awal Anda.</p>
 
                 @if($preTest)
                     <div class="p-4 bg-slate-50 border border-slate-100 rounded-2xl mb-6">
@@ -44,7 +44,7 @@
                                 <span class="font-medium text-slate-700">{{ $preTest->completed_at->format('d M Y') }}</span>
                             </div>
                         @else
-                            <p class="text-xs text-amber-600 font-bold">Ujian draf Anda sedang aktif.</p>
+                            <p class="text-xs text-amber-600 font-bold">Pengisian draf instrumen sedang aktif.</p>
                         @endif
                     </div>
                 @endif
@@ -57,7 +57,7 @@
                         @csrf
                         <div>
                             <label for="name_pre" class="form-label text-xs">Masukkan Nama Lengkap Anda</label>
-                            <input type="text" id="name_pre" name="konseli_name" required class="form-input bg-slate-50" placeholder="Ketik nama lengkap untuk sertifikat/laporan..." />
+                            <input type="text" id="name_pre" name="konseli_name" required class="form-input bg-slate-50" placeholder="Ketik nama lengkap untuk laporan..." />
                         </div>
                         <button type="submit" class="w-full btn-primary bg-gradient-to-r from-blue-500 to-blue-600 py-3 font-bold">
                             Mulai Pre-Test Sekarang
@@ -89,8 +89,8 @@
                     @endif
                 </div>
 
-                <h3 class="font-extrabold text-slate-800 text-xl mb-2">Post-Test Wellbeing</h3>
-                <p class="text-sm text-slate-500 leading-relaxed mb-6">Dilakukan di akhir program setelah Anda selesai membaca modul kearifan budaya dan menyelesaikan refleksi WDEP.</p>
+                <h3 class="font-extrabold text-slate-800 text-xl mb-2">Post-Test Resiliensi</h3>
+                <p class="text-sm text-slate-500 leading-relaxed mb-6">Dilakukan setelah Anda menyelesaikan sesi self-help berfokus solusi untuk melihat perkembangan resiliensi Anda.</p>
 
                 @if($postTest)
                     <div class="p-4 bg-slate-50 border border-slate-100 rounded-2xl mb-6">

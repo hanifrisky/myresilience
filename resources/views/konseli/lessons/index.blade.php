@@ -2,8 +2,8 @@
 @section('page-title', 'Pembelajaran')
 @section('content')
 <div class="mb-8">
-    <h1 class="text-3xl font-extrabold text-slate-800 tracking-tight">Pembelajaran</h1>
-    <p class="text-slate-500 mt-2 text-lg max-w-2xl">Jelajahi berbagai materi edukasi, tips, dan panduan yang telah disusun khusus untuk membantu perkembangan dan kesejahteraan Anda.</p>
+    <h1 class="text-3xl font-extrabold text-slate-800 tracking-tight">Materi Pembelajaran</h1>
+    <p class="text-slate-500 mt-2 text-lg max-w-2xl">Jelajahi berbagai materi edukasi, tips, dan panduan yang telah disusun khusus untuk membantu menumbuhkan ketangguhan (resiliensi) dan kekuatan dirimu.</p>
 </div>
 {{-- Search Bar --}}
     <div class="sticky top-0 z-20 bg-slate-50/90 backdrop-blur pb-5 mb-8">

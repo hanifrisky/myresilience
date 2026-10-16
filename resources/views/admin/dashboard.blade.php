@@ -8,7 +8,7 @@
     {{-- Welcome card --}}
     <div class="p-6 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800 rounded-3xl text-white shadow-xl shadow-blue-500/10">
         <h3 class="text-2xl font-bold">Selamat Datang kembali, {{ auth()->user()->name }}!</h3>
-        <p class="text-blue-100 mt-1.5 text-sm">Kelola instrumen kesejahteraan psikologis, suku budaya, materi self-help, dan data konselor dari satu tempat.</p>
+        <p class="text-blue-100 mt-1.5 text-sm">Kelola instrumen resiliensi, paket modul self-help berfokus solusi (SFBC), materi edukasi, dan data konselor dari satu tempat.</p>
     </div>
 
     {{-- Stats Grid --}}
@@ -35,13 +35,13 @@
             </div>
         </div>
 
-        {{-- Stat 3: Suku Budaya --}}
+        {{-- Stat 3: Paket Modul Self-Help --}}
         <div class="stat-card">
             <div class="stat-icon bg-amber-100 text-amber-600">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
             </div>
             <div>
-                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Suku Budaya</p>
+                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Paket Modul</p>
                 <h4 class="text-2xl font-bold text-slate-800 mt-0.5">{{ \App\Models\Tribe::count() }}</h4>
             </div>
         </div>
@@ -52,7 +52,7 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
             <div>
-                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Soal Kuesioner</p>
+                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Soal Instrumen</p>
                 <h4 class="text-2xl font-bold text-slate-800 mt-0.5">{{ \App\Models\Question::count() }}</h4>
             </div>
         </div>
@@ -111,7 +111,7 @@
                         <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>
                     <a href="{{ route('admin.tribes.create') }}" class="flex items-center justify-between p-3.5 bg-slate-50 hover:bg-blue-50/50 hover:text-blue-600 rounded-2xl border border-slate-100 transition-all duration-200">
-                        <span class="text-sm font-semibold text-slate-700 hover:text-blue-600">Tambah Suku Baru</span>
+                        <span class="text-sm font-semibold text-slate-700 hover:text-blue-600">Tambah Paket Modul Self-Help</span>
                         <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>
                 </div>

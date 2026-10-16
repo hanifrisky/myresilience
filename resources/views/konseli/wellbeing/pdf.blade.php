@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Laporan Hasil Wellbeing - {{ strtoupper(str_replace('_', ' ', $type)) }}</title>
+    <title>Laporan Hasil Instrumen Resiliensi - {{ strtoupper(str_replace('_', ' ', $type)) }}</title>
     <style>
         @page {
             margin: 1.5cm 1.5cm 1.5cm 1.5cm;
@@ -245,8 +245,8 @@
                 <img src="{{ public_path('image/logo-mark.png') }}" alt="Logo">
             </td>
             <td class="kop-text">
-                <h1 class="kop-title">Teman Sebayaku</h1>
-                <p class="kop-subtitle">Model Peer Counseling Berbantuan Digital Self-Help Bermuatan Nilai Kearifan Lokal</p>
+                <h1 class="kop-title">MY RESILIENCE</h1>
+                <p class="kop-subtitle">Model Cybercounseling Berfokus Solusi Berbantuan Self-Help untuk Meningkatkan Resiliensi pada Remaja</p>
             </td>
         </tr>
     </table>
@@ -256,7 +256,7 @@
 
     <!-- Document Title -->
     <div class="doc-title">
-        Laporan Hasil Analisis Kesejahteraan Psikologis (Well-Being)
+        Laporan Hasil Analisis Instrumen Resiliensi
     </div>
 
     <!-- Metadata Grid -->
@@ -264,7 +264,7 @@
         <tr>
             <td class="meta-label meta-border-bottom meta-border-right">Nama Pengisi</td>
             <td class="meta-val meta-border-bottom meta-border-right">{{ $answer->konseli_name }}</td>
-            <td class="meta-label meta-border-bottom">Tipe Kuesioner</td>
+            <td class="meta-label meta-border-bottom">Tahap Pengukuran</td>
             <td class="meta-val meta-border-bottom">{{ strtoupper(str_replace('_', ' ', $type)) }}</td>
         </tr>
         <tr>
@@ -282,7 +282,7 @@
                 <div class="score-card">
                     <h2 class="score-card-title">Skor Diperoleh</h2>
                     <div class="score-number">{{ $answer->total_score }}</div>
-                    <p class="score-desc">Total Skor Tes</p>
+                    <p class="score-desc">Total Skor Resiliensi</p>
                 </div>
             </td>
             <td class="results-right">
@@ -298,7 +298,7 @@
 
     <!-- Detailed Responses Section -->
     <div class="details-section-title">
-        Rincian Respon Butir Kuesioner
+        Rincian Respon Butir Instrumen Resiliensi
     </div>
     
     <table class="details-table">
@@ -324,8 +324,8 @@
     <table class="footer-table">
         <tr>
             <td class="footer-text">
-                Dokumen hasil pengukuran kesejahteraan psikologis (wellbeing) ini dihasilkan secara otomatis oleh sistem digital Teman Sebayaku.<br>
-                Hak Cipta Dilindungi Undang-Undang &copy; {{ date('Y') }} Teman Sebayaku. All Rights Reserved.
+                Dokumen hasil pengukuran instrumen resiliensi ini dihasilkan secara otomatis oleh sistem digital MY RESILIENCE.<br>
+                Hak Cipta Dilindungi Undang-Undang &copy; {{ date('Y') }} MY RESILIENCE • KEMENDIKTI SAINTEK - UM.
             </td>
         </tr>
     </table>
