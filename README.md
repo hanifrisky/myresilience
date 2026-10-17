@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="public/image/logo-mark.png" width="120" height="120" alt="Teman Sebayaku Logo" style="border-radius: 24px; box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);">
+  <img src="public/image/logo-mark.png" width="120" height="120" alt="MY RESILIENCE Logo" style="border-radius: 24px; box-shadow: 0 10px 25px -5px rgba(15, 61, 145, 0.35);">
 </p>
 
-<h1 align="center">Teman Sebayaku</h1>
+<h1 align="center">MY RESILIENCE</h1>
 
 <p align="center">
-  <strong>Model Peer Counseling Berbantuan Digital Self-Help Bermuatan Nilai Kearifan Lokal untuk Meningkatkan Well-Being Remaja</strong>
+  <strong>Model Cybercounseling Berfokus Solusi Berbantuan Self-Help untuk Meningkatkan Resiliensi pada Remaja dengan Kerentanan Psikologis</strong>
 </p>
 
 <p align="center">
@@ -19,106 +19,122 @@
 
 ---
 
-## 📌 Tentang Teman Sebayaku
+## 📌 Tentang MY RESILIENCE
 
-**Teman Sebayaku** adalah platform kesehatan mental digital berbasis website yang didesain khusus sebagai media pendukung dalam pelaksanaan **Model Peer Counseling Berbantuan Digital Self-Help Bermuatan Nilai Kearifan Lokal**. Platform ini bertujuan untuk mendeteksi dini kesehatan mental dan membantu meningkatkan kondisi *well-being* (kesejahteraan psikologis) pada siswa tingkat SLTA/remaja melalui pendekatan terstruktur berbasis budaya.
+**MY RESILIENCE** adalah platform kesehatan mental dan bimbingan konseling digital berbasis website yang dirancang khusus sebagai media layanan **Model Cybercounseling Berfokus Solusi (*Solution-Focused Brief Counseling* / SFBC) Berbantuan Self-Help untuk Meningkatkan Resiliensi pada Remaja dengan Kerentanan Psikologis**.
 
-Platform ini didukung oleh **LPPD-KEMENDIKTI SAINTEK** bekerjasama dengan tim kolaborasi lintas universitas dari:
-* **Universitas Negeri Malang (UM)**
-* **Universitas Negeri Yogyakarta (UNY)**
-* **Universitas Negeri Padang (UNP)**
+Di platform ini, remaja (konseli) tidak diajak untuk terus berfokus pada masalah atau kegagalan masa lalu, melainkan didampingi untuk mengenali kekuatan diri, menemukan pengecualian positif (*exception*), merumuskan jalan keluar, dan melangkah menuju masa depan yang diharapkan.
+
+Platform ini didukung oleh **KEMENDIKTI SAINTEK (Saintek Berdampak)** bekerja sama dengan **Departemen Bimbingan dan Konseling, Fakultas Ilmu Pendidikan, Universitas Negeri Malang (UM)**.
 
 ---
 
 ## 🚀 Fitur Utama
 
-### 📊 1. Instrumen Well-Being Interaktif (Pre-Test & Post-Test)
-* Pengisian kuesioner kesejahteraan psikologis yang responsif dengan penyimpanan jawaban otomatis (*auto-save*).
-* Penyederhanaan pilihan jawaban tanpa menampilkan bias angka nilai skor langsung saat pengisian.
-* Kalkulasi skor otomatis berbasis kriteria interpretasi nilai dari admin.
-* Ekspor laporan hasil analisis kesejahteraan psikologis dalam format **PDF** yang rapi.
+### 📊 1. Instrumen Resiliensi Interaktif (Pre-Test & Post-Test)
+* Pengukuran tingkat resiliensi remaja sebelum (*Pre-Test*) dan sesudah (*Post-Test*) mengikuti sesi *self-help*.
+* Pengisian kuesioner interaktif yang responsif dengan penyimpanan jawaban otomatis (*auto-save*).
+* Kalkulasi skor otomatis beserta kategori interpretasi tingkat resiliensi dari sistem.
+* Ekspor laporan hasil analisis resiliensi dalam format **PDF** yang rapi dan siap diunduh.
 
-### 📚 2. Modul Budaya Digital Self-Help
-* Pengelompokan materi bimbingan berdasarkan suku atau nilai kearifan lokal (misalnya budaya Jawa, Minang, dll).
-* Memudahkan siswa menyerap nilai resiliensi dan kepribadian cerdas emosi melalui kearifan budaya yang dekat dengan keseharian mereka.
+### 🧩 2. Modul Digital Self-Help Berbasis SFBC-Resiliensi
+Terdiri dari **5 Modul Utama Resiliensi** yang dirancang untuk membangun ketangguhan psikologis remaja:
+1. **Modul Regulasi Diri** (*Self Regulation*: Mengelola Emosi & Ketenangan Diri)
+2. **Modul Kapasitas Adaptif** (*Adaptive Capacity*: Menyesuaikan Diri & Bangkit dari Kegagalan)
+3. **Modul Pemecahan Masalah** (*Problem Solving Competence*: Mencari Jalan Keluar & Fokus Solusi)
+4. **Modul Keterikatan Sosial** (*Social Connectedness*: Membangun Hubungan & Keberanian Meminta Bantuan)
+5. **Modul Orientasi Pertumbuhan** (*Growth Orientation*: Semangat Belajar & Pemanfaatan Digital Positif)
 
-### ✍️ 3. Jurnal Refleksi Mandiri Berbasis WDEP
-* Lembar kerja terstruktur yang didesain berdasarkan tahapan konseling realitas **WDEP (Want, Do/Doing, Evaluation, Planning)**:
-  * **Want (W)**: Mengeksplorasi keinginan dan kebutuhan remaja.
-  * **Do/Doing (D)**: Mengidentifikasi tindakan atau perilaku saat ini.
-  * **Evaluation (E)**: Mengevaluasi kefektifan tindakan tersebut.
-  * **Planning (P)**: Merumuskan rencana tindakan nyata yang bertanggung jawab.
-* Sistem penyimpanan otomatis di setiap tahapan refleksi.
+### ✍️ 3. Lembar Kerja Refleksi 5 Tahapan SFBC
+Setiap modul dilengkapi lembar kerja interaktif dengan *auto-save* yang mengikuti tahapan **Solution-Focused Brief Counseling (SFBC)**:
+* **Tahap 1 — Tujuan (*Goal Setting*)**: Merumuskan tujuan dan harapan perubahan positif yang konkret.
+* **Tahap 2 — Penemuan Exception (*Exception Finding*)**: Menggali pengalaman keberhasilan di masa lalu saat mampu mengatasi situasi serupa.
+* **Tahap 3 — Pelaksanaan Solusi (*Solution Building*)**: Memilih strategi atau tindakan paling cocok untuk diterapkan kembali.
+* **Tahap 4 — Scaling (*Scaling Questions*)**: Mengukur posisi keyakinan/ketangguhan pada skala `1–10` beserta langkah kecil untuk naik satu tingkat.
+* **Tahap 5 — Tugas (*Action Plan / Misi Hari Ini*)**: Menyusun rencana aksi nyata dan sederhana yang siap dilakukan.
 
-### 🤝 4. Alur Kolaborasi Konseling Sebaya (Peer Counseling)
-* Konseli dapat memilih konselor sebaya (*peer counselor*) yang terdaftar di dalam sistem.
-* Konselor sebaya dapat melacak progres pengerjaan instrumen dan modul *self-help* konseli, serta memberikan *feedback* bimbingan kognitif secara terarah.
-* Sistem eskalasi rujukan ke Konselor Sekolah profesional jika dibutuhkan tindak lanjut sesi klinis.
+### 🤝 4. Alur Cybercounseling & Pendampingan Konselor
+* Konseli dapat memilih konselor pendamping yang terdaftar di dalam sistem dan terhubung langsung melalui integrasi komunikasi (WhatsApp).
+* Konselor dapat memantau progres pengisian instrumen resiliensi (*Pre-Test* & *Post-Test*), meninjau jawaban refleksi *self-help* konseli, serta mereset tes apabila diperlukan.
+* Rujukan sesi konseling lanjutan bersama konselor sekolah jika dibutuhkan pendampingan lebih mendalam.
 
-### 👑 5. Panel Administrasi Komprehensif
-* Manajemen data user (Admin, Konselor, Konseli).
-* Pengaturan bank soal kuesioner instrumen *well-being*.
-* Manajemen interpretasi rentang skor indeks kesejahteraan psikologis.
-* Manajemen materi suku kearifan lokal dan modul bimbingan *self-help*.
+### 📚 5. Ruang Materi Pembelajaran (Lessons) & Panel Administrasi
+* **Pembelajaran Interaktif**: Penyediaan materi edukasi tambahan (teks, artikel, dan media pembelajaran) yang dikelola oleh Konselor dan Admin untuk Konseli.
+* **Panel Administrator Komprehensif**: Manajemen pengguna multi-peran (*Admin*, *Konselor*, *Konseli*), pengelolaan bank soal instrumen & grup opsi, manajemen rentang skor interpretasi, serta pengaturan modul dan pertanyaan *self-help*.
+
+---
+
+## 🧭 8 Langkah Penggunaan (Alur Konseli)
+
+1. **Registrasi Akun**: Mendaftarkan akun baru sebagai konseli pada platform.
+2. **Masuk (Log-in)**: Masuk ke dalam dashboard konseli melalui menu *Log-in*.
+3. **Memilih Konselor**: Memilih konselor pendamping selama mengikuti rangkaian layanan.
+4. **Pre-Test Resiliensi**: Mengisi instrumen resiliensi awal sebelum mengikuti sesi *self-help*.
+5. **Sesi Self-Help**: Mengerjakan modul *self-help* interaktif berbasis SFBC-Resiliensi.
+6. **Post-Test Resiliensi**: Mengisi instrumen resiliensi akhir setelah menyelesaikan sesi *self-help*.
+7. **Komunikasi Hasil**: Mengkomunikasikan hasil pengerjaan *self-help* dan instrumen bersama konselor pendamping.
+8. **Tindak Lanjut**: Menghubungi konselor sekolah jika dibutuhkan sesi konseling lanjutan.
 
 ---
 
 ## 🛠️ Arsitektur & Teknologi
 
-* **Backend Framework**: Laravel 11.x (PHP 8.2+)
-* **Database**: MySQL / MariaDB
-* **Frontend Stack**: 
+* **Backend Framework**: Laravel 13.x (PHP 8.3+)
+* **Database**: MySQL / MariaDB / SQLite
+* **Frontend Stack**:
   * Blade Templating Engine
-  * Tailwind CSS (melalui Vite Compiler)
-  * Alpine.js (untuk reaktivitas frontend interaktif & auto-save)
-* **Build System**: Vite 8.x
-* **Export Engine**: Dompdf (untuk ekspor PDF laporan wellbeing)
+  * Tailwind CSS (Desain sistem warna 60-30-10: *Crisp White*, *Royal Blue*, *Luminous Cyan*)
+  * Alpine.js (Reaktivitas komponen interaktif & *auto-save*)
+* **Build System**: Vite
+* **PDF Export Engine**: `barryvdh/laravel-dompdf`
 
 ---
 
 ## 📂 Struktur Direktori Utama
 
-```
-teman-sebayaku/
+```text
+myresilience/
 ├── app/
 │   ├── Http/
-│   │   └── Controllers/     # Logic Controller (Auth, Admin, Konselor, Konseli)
-│   └── Models/              # Representasi Database Eloquent ORM
+│   │   └── Controllers/     # Controller (Auth, Admin, Konselor, Konseli)
+│   └── Models/              # Model Eloquent ORM (User, Question, Tribe, Material, Lesson, dll.)
 ├── database/
-│   ├── migrations/          # Schema Migrations
-│   └── seeders/             # Seeders data awal (soal instrumen, dll)
+│   ├── migrations/          # Skema tabel database
+│   └── seeders/             # Data awal (Admin, Konselor, Soal Resiliensi, Modul SFBC-Resiliensi)
 ├── public/
-│   ├── build/               # Aset Vite yang telah terkompilasi
-│   └── image/               # Aset gambar, logo-mark, dan foto tim
+│   ├── build/               # Aset terkompilasi Vite
+│   └── image/               # Aset visual, logo institusi, ilustrasi hero, dan foto tim
 ├── resources/
-│   ├── css/                 # Aset CSS & Integrasi Tailwind
-│   ├── js/                  # JavaScript & Inisialisasi Alpine.js
-│   └── views/               # Template Blade (layout dasar & dashboard per-role)
-│       ├── admin/           # Tampilan Panel Administrator
-│       ├── konseli/         # Tampilan Panel Siswa/Konseli
-│       ├── konselor/        # Tampilan Panel Konselor Sebaya
-│       └── layouts/         # Layout dasar platform (Base, Guest, Sidebar)
+│   ├── css/                 # Stylesheet utama & konfigurasi Tailwind CSS
+│   ├── js/                  # Inisialisasi JavaScript & Alpine.js
+│   └── views/               # Template Blade
+│       ├── admin/           # Antarmuka Panel Administrator
+│       ├── konseli/         # Antarmuka Panel Remaja/Konseli
+│       ├── konselor/        # Antarmuka Panel Konselor Pendamping
+│       ├── layouts/         # Layout dasar platform (Base, Guest, Sidebar per Role)
+│       └── landing.blade.php # Halaman utama (Landing Page) MY RESILIENCE
 └── routes/
-    └── web.php              # Definisi Routing sistem
+    ├── web.php              # Definisi routing utama berdasarkan role
+    └── auth.php             # Definisi routing autentikasi
 ```
 
 ---
 
 ## 🔧 Panduan Instalasi Lokal
 
-Ikuti langkah-langkah di bawah untuk menjalankan proyek **Teman Sebayaku** di mesin lokal Anda:
+Ikuti langkah-langkah berikut untuk menjalankan proyek **MY RESILIENCE** di lingkungan lokal Anda:
 
 ### 1. Prasyarat
-Pastikan Anda sudah menginstal:
-* PHP >= 8.2
+Pastikan perangkat Anda telah terinstal:
+* PHP >= 8.3
 * Composer
 * Node.js & NPM
 * MySQL / MariaDB
 
 ### 2. Kloning Repositori
 ```bash
-git clone https://github.com/username/teman-sebayaku.git
-cd teman-sebayaku
+git clone <url-repository-anda> myresilience
+cd myresilience
 ```
 
 ### 3. Instalasi Dependensi PHP & JavaScript
@@ -127,60 +143,75 @@ composer install
 npm install
 ```
 
-### 4. Konfigurasi Lingkungan (.env)
-Salin file `.env.example` menjadi `.env`:
+### 4. Konfigurasi Lingkungan (`.env`)
+Salin berkas `.env.example` menjadi `.env`:
 ```bash
 cp .env.example .env
 ```
-Buka file `.env` dan sesuaikan konfigurasi database Anda:
+Sesuaikan konfigurasi database di dalam berkas `.env`:
 ```env
+APP_NAME="MY RESILIENCE"
+APP_URL=http://localhost:8000
+
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=teman_sebayaku
+DB_DATABASE=myresilience
 DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 5. Generate Application Key & Link Storage
+### 5. Generate Application Key & Symbolic Link Storage
 ```bash
 php artisan key:generate
 php artisan storage:link
 ```
 
-### 6. Jalankan Migrasi dan Database Seeder
-Langkah ini akan membuat tabel database dan mengisinya dengan data awal (termasuk kuesioner, admin default, dll):
+### 6. Migrasi Database & Seeder Data Awal
+Perintah ini akan membuat seluruh tabel dan mengisi data awal (akun Admin, akun Konselor, instrumen kuesioner resiliensi, serta 5 Modul Self-Help SFBC-Resiliensi):
 ```bash
 php artisan migrate --seed
 ```
 
-### 7. Jalankan Server Pengembangan
-Jalankan server Laravel (PHP) dan Vite secara bersamaan:
+### 7. Menjalankan Server Pengembangan
+Anda dapat menjalankan seluruh layanan pengembangan sekaligus menggunakan skrip Composer:
 ```bash
-# Terminal 1: Menjalankan Laravel Development Server
+composer run dev
+```
+Atau menjalankannya secara terpisah di dua terminal:
+```bash
+# Terminal 1: Menjalankan server aplikasi Laravel
 php artisan serve
 
-# Terminal 2: Menjalankan Vite Development Server
+# Terminal 2: Menjalankan compiler aset Vite
 npm run dev
 ```
-Akses platform melalui browser Anda di alamat: `http://127.0.5.1:8000` atau `http://localhost:8000`.
+Buka browser dan akses aplikasi pada alamat `http://localhost:8000`.
 
 ---
 
-## 👥 Tim Pengembang
+## 👥 Tim Peneliti & Pengembang
 
-Platform ini dikembangkan oleh tim pakar ahli bimbingan konseling dan sains teknologi:
+Platform ini dikembangkan oleh tim peneliti dan pengembang dari **Universitas Negeri Malang (UM)**:
 
-1. **Prof. Dr. M. Ramli, M.A** (FIP Universitas Negeri Malang)
-2. **Prof. Dr. Budi Astuti, M.Si** (FIP Universitas Negeri Yogyakarta)
-3. **Dr. Miftahul Fikri, M.Pd** (FIP Universitas Negeri Padang)
-4. **Dr. Diniy Hidayatur Rahman, S.Pd., M.Pd** (FIP Universitas Negeri Malang)
-5. **Nur Mega Aris Saputra, S.Pd., M.Pd** (FIP Universitas Negeri Malang)
-6. **Nail Hidaya Afandi, S.Pd., M.Pd** (FIP Universitas Negeri Malang)
-7. **Muh. Nur Alamsyah, S.Pd., M.Pd** (FIP Universitas Negeri Malang)
+1. **Prof. Dr. M. Ramli, M.A** — *Departemen Bimbingan dan Konseling FIP UM*
+2. **Prof. Dr. Nur Hidayah, M.Pd** — *Departemen Bimbingan dan Konseling FIP UM*
+3. **Dr. Nur Eva, M.Psi., Psikolog** — *Fakultas Psikologi Universitas Negeri Malang*
+4. **Dr. Nur Mega Aris Saputra, S.Pd., M.Pd** — *Departemen Bimbingan dan Konseling FIP UM*
+5. **Muh Khoiruddin Jalil, S.Pd., M.Pd** — *Departemen Bimbingan dan Konseling FIP UM*
+6. **Muh. Nur Alamsyah, S.Pd., M.Pd** — *Departemen Bimbingan dan Konseling FIP UM*
 
 ---
 
-## 📄 Lisensi
+## 📞 Kontak & Informasi Institusi
 
-Platform ini dirilis secara terbatas untuk kepentingan akademis, riset, dan pengabdian masyarakat di bawah naungan **LPPD-KEMENDIKTI SAINTEK** dan tim universitas kolaborator. Hak Cipta Dilindungi Undang-Undang.
+* **Institusi**: Departemen Bimbingan dan Konseling, Fakultas Ilmu Pendidikan, Universitas Negeri Malang (FIP UM)
+* **Alamat**: Jl. Semarang No. 5, Kota Malang, Jawa Timur
+* **Telepon / WhatsApp**: [+62 812-3175-0634](https://wa.me/6281231750634)
+* **Email**: [aris.saputra.fip@um.ac.id](mailto:aris.saputra.fip@um.ac.id)
+
+---
+
+## 📄 Lisensi & Hak Cipta
+
+Platform ini dikembangkan dan dirilis untuk kepentingan akademis, riset, layanan bimbingan konseling, dan pengabdian masyarakat di bawah naungan **KEMENDIKTI SAINTEK** dan **Universitas Negeri Malang (UM)**. Hak Cipta Dilindungi Undang-Undang.
