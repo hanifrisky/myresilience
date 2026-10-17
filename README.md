@@ -133,7 +133,7 @@ Pastikan perangkat Anda telah terinstal:
 
 ### 2. Kloning Repositori
 ```bash
-git clone <url-repository-anda> myresilience
+git clone https://github.com/hanifrisky/myresilience.git myresilience
 cd myresilience
 ```
 
