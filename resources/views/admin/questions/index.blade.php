@@ -4,17 +4,17 @@
 @section('page-title', 'Soal Instrumen Resiliensi')
 
 @section('header-actions')
-<div class="flex items-center gap-3">
+<div class="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
     <form id="reorder-form" action="{{ route('admin.questions.reorder') }}" method="POST" class="inline-block">
         @csrf
         <input type="hidden" name="question_order" id="question-order-input">
-        <button type="submit" id="btn-save-order" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-slate-100 to-slate-200 text-slate-400 font-semibold rounded-xl border border-slate-200 transition-all duration-200 text-sm cursor-not-allowed" disabled>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/></svg>
+        <button type="submit" id="btn-save-order" class="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm bg-gradient-to-r from-slate-100 to-slate-200 text-slate-400 font-semibold rounded-xl border border-slate-200 transition-all duration-200 cursor-not-allowed whitespace-nowrap" disabled>
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/></svg>
             Simpan Urutan
         </button>
     </form>
-    <a href="{{ route('admin.questions.create') }}" class="btn-primary">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+    <a href="{{ route('admin.questions.create') }}" class="btn-primary px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm whitespace-nowrap">
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
         Tambah Soal Baru
     </a>
 </div>
@@ -23,7 +23,7 @@
 @section('content')
 <div class="space-y-6 animate-fade-in">
     <div class="table-container">
-        <div class="p-6 border-b border-slate-200/60 bg-white">
+        <div class="p-4 sm:p-6 border-b border-slate-200/60 bg-white">
             <h3 class="font-bold text-slate-800 text-lg">Daftar Pertanyaan Instrumen Resiliensi</h3>
             <p class="text-sm text-slate-500 mt-1">Daftar pertanyaan yang akan dikerjakan konseli untuk mengukur tingkat Resiliensi mereka (sebelum dan sesudah mengikuti sesi self-help).</p>
         </div>
@@ -37,19 +37,19 @@
             </div>
         @else
             <div class="overflow-x-auto bg-white">
-                <table class="w-full">
+                <table class="w-full min-w-[640px]">
                     <thead>
                         <tr>
-                            <th class="w-32 text-center">No Urut</th>
+                            <th class="w-32 text-center whitespace-nowrap">No Urut</th>
                             <th>Teks Pertanyaan</th>
-                            <th>Grup Pilihan Jawaban</th>
-                            <th class="w-40 text-center">Aksi</th>
+                            <th class="whitespace-nowrap">Grup Pilihan Jawaban</th>
+                            <th class="w-40 text-center whitespace-nowrap">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100">
                         @foreach($questions as $question)
                             <tr draggable="true" data-id="{{ $question->id }}" class="drag-row cursor-grab active:cursor-grabbing hover:bg-slate-50/80">
-                                <td>
+                                <td class="whitespace-nowrap">
                                     <div class="flex items-center justify-center gap-2.5 py-2">
                                         <!-- Drag Handle -->
                                         <div class="text-slate-300 hover:text-slate-500 drag-handle flex-shrink-0" title="Tarik untuk mengurutkan">
@@ -73,12 +73,12 @@
                                     </div>
                                 </td>
                                 <td class="font-medium text-slate-800 py-4 max-w-lg select-none">{{ $question->text }}</td>
-                                <td>
+                                <td class="whitespace-nowrap">
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100 select-none">
                                         {{ $question->optionGroup->name }}
                                     </span>
                                 </td>
-                                <td>
+                                <td class="whitespace-nowrap">
                                     <div class="flex items-center justify-center gap-2">
                                         <a href="{{ route('admin.questions.edit', $question) }}" class="btn-secondary btn-sm select-none">
                                             Edit

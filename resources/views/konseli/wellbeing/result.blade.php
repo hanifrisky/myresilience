@@ -14,7 +14,7 @@
 @endphp
 
 <div class="max-w-2xl mx-auto space-y-8 animate-fade-in pb-16">
-    <div class="card p-6 bg-white border border-slate-200/80 text-center relative overflow-hidden">
+    <div class="card p-5 sm:p-8 bg-white border border-slate-200/80 text-center relative overflow-hidden">
         {{-- Glowing blobs --}}
         <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
             <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-500 rounded-full blur-2xl"></div>
@@ -26,7 +26,7 @@
                 <span class="text-xs font-bold bg-blue-50 text-blue-700 px-2.5 py-1 rounded-lg border border-blue-100 uppercase tracking-wider">
                     Hasil Pengukuran Resiliensi
                 </span>
-                <h2 class="text-2xl font-extrabold text-slate-800 mt-3">Hasil {{ str_replace('_', ' ', strtoupper($answer->type)) }} Resiliensi</h2>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-slate-800 mt-3">Hasil {{ str_replace('_', ' ', strtoupper($answer->type)) }} Resiliensi</h2>
                 <p class="text-xs text-slate-400 mt-1">Nama Pengisi: <strong class="text-slate-600">{{ $answer->konseli_name }}</strong> &bull; Selesai Pada: {{ $answer->completed_at->format('d M Y H:i') }}</p>
             </div>
 

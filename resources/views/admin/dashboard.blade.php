@@ -6,13 +6,13 @@
 @section('content')
 <div class="space-y-8 animate-fade-in">
     {{-- Welcome card --}}
-    <div class="p-6 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800 rounded-3xl text-white shadow-xl shadow-blue-500/10">
-        <h3 class="text-2xl font-bold">Selamat Datang kembali, {{ auth()->user()->name }}!</h3>
+    <div class="p-5 sm:p-6 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800 rounded-3xl text-white shadow-xl shadow-blue-500/10">
+        <h3 class="text-xl sm:text-2xl font-bold">Selamat Datang kembali, {{ auth()->user()->name }}!</h3>
         <p class="text-blue-100 mt-1.5 text-sm">Kelola instrumen resiliensi, paket modul self-help berfokus solusi (SFBC), materi edukasi, dan data konselor dari satu tempat.</p>
     </div>
 
     {{-- Stats Grid --}}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {{-- Stat 1: Konseli --}}
         <div class="stat-card">
             <div class="stat-icon bg-blue-100 text-blue-600">
@@ -59,32 +59,32 @@
     </div>
 
     {{-- Quick actions and details --}}
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
         {{-- Left side --}}
         <div class="lg:col-span-2 space-y-6">
-            <div class="card p-6">
+            <div class="card p-4 sm:p-6">
                 <h3 class="font-bold text-lg text-slate-800 mb-4">Pengguna Terdaftar Terbaru</h3>
                 <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left">
+                    <table class="w-full min-w-[520px] text-sm text-left">
                         <thead>
                             <tr class="border-b border-slate-100 text-slate-400 font-semibold">
-                                <th class="py-2.5">Nama</th>
-                                <th class="py-2.5">Email</th>
-                                <th class="py-2.5">Role</th>
-                                <th class="py-2.5 text-right">Daftar Pada</th>
+                                <th class="py-2.5 px-3 sm:px-4 whitespace-nowrap">Nama</th>
+                                <th class="py-2.5 px-3 sm:px-4 whitespace-nowrap">Email</th>
+                                <th class="py-2.5 px-3 sm:px-4 whitespace-nowrap">Role</th>
+                                <th class="py-2.5 px-3 sm:px-4 text-right whitespace-nowrap">Daftar Pada</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-50">
                             @foreach(\App\Models\User::latest()->take(5)->get() as $u)
                                 <tr class="text-slate-600">
-                                    <td class="py-3 font-medium text-slate-800">{{ $u->name }}</td>
-                                    <td class="py-3">{{ $u->email }}</td>
-                                    <td class="py-3">
+                                    <td class="py-3 px-3 sm:px-4 font-medium text-slate-800 whitespace-nowrap">{{ $u->name }}</td>
+                                    <td class="py-3 px-3 sm:px-4 whitespace-nowrap">{{ $u->email }}</td>
+                                    <td class="py-3 px-3 sm:px-4 whitespace-nowrap">
                                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {{ $u->role === 'admin' ? 'bg-rose-100 text-rose-800' : ($u->role === 'konselor' ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800') }}">
                                             {{ $u->role }}
                                         </span>
                                     </td>
-                                    <td class="py-3 text-right text-slate-400 text-xs">{{ $u->created_at->diffForHumans() }}</td>
+                                    <td class="py-3 px-3 sm:px-4 text-right text-slate-400 text-xs whitespace-nowrap">{{ $u->created_at->diffForHumans() }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -95,24 +95,24 @@
 
         {{-- Right side: Quick links --}}
         <div class="space-y-6">
-            <div class="card p-6">
+            <div class="card p-4 sm:p-6">
                 <h3 class="font-bold text-lg text-slate-800 mb-4">Pintasan Manajemen</h3>
                 <div class="space-y-3">
-                    <a href="{{ route('admin.option-groups.create') }}" class="flex items-center justify-between p-3.5 bg-slate-50 hover:bg-blue-50/50 hover:text-blue-600 rounded-2xl border border-slate-100 transition-all duration-200">
+                    <a href="{{ route('admin.option-groups.create') }}" class="flex items-center justify-between gap-2 p-3.5 bg-slate-50 hover:bg-blue-50/50 hover:text-blue-600 rounded-2xl border border-slate-100 transition-all duration-200">
                         <span class="text-sm font-semibold text-slate-700 hover:text-blue-600">Buat Grup Opsi Jawaban</span>
-                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        <svg class="w-4 h-4 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>
-                    <a href="{{ route('admin.questions.create') }}" class="flex items-center justify-between p-3.5 bg-slate-50 hover:bg-blue-50/50 hover:text-blue-600 rounded-2xl border border-slate-100 transition-all duration-200">
+                    <a href="{{ route('admin.questions.create') }}" class="flex items-center justify-between gap-2 p-3.5 bg-slate-50 hover:bg-blue-50/50 hover:text-blue-600 rounded-2xl border border-slate-100 transition-all duration-200">
                         <span class="text-sm font-semibold text-slate-700 hover:text-blue-600">Tambah Pertanyaan Baru</span>
-                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        <svg class="w-4 h-4 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>
-                    <a href="{{ route('admin.counselors.create') }}" class="flex items-center justify-between p-3.5 bg-slate-50 hover:bg-blue-50/50 hover:text-blue-600 rounded-2xl border border-slate-100 transition-all duration-200">
+                    <a href="{{ route('admin.counselors.create') }}" class="flex items-center justify-between gap-2 p-3.5 bg-slate-50 hover:bg-blue-50/50 hover:text-blue-600 rounded-2xl border border-slate-100 transition-all duration-200">
                         <span class="text-sm font-semibold text-slate-700 hover:text-blue-600">Tambah Konselor Baru</span>
-                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        <svg class="w-4 h-4 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>
-                    <a href="{{ route('admin.tribes.create') }}" class="flex items-center justify-between p-3.5 bg-slate-50 hover:bg-blue-50/50 hover:text-blue-600 rounded-2xl border border-slate-100 transition-all duration-200">
+                    <a href="{{ route('admin.tribes.create') }}" class="flex items-center justify-between gap-2 p-3.5 bg-slate-50 hover:bg-blue-50/50 hover:text-blue-600 rounded-2xl border border-slate-100 transition-all duration-200">
                         <span class="text-sm font-semibold text-slate-700 hover:text-blue-600">Tambah Paket Modul Self-Help</span>
-                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        <svg class="w-4 h-4 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>

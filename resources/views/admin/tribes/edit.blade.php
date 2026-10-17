@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="max-w-md mx-auto space-y-6 animate-fade-in">
-    <div class="card p-6">
-        <div class="flex items-center justify-between mb-6">
+    <div class="card p-4 sm:p-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
             <h3 class="font-bold text-slate-800 text-lg">Form Edit Paket Modul</h3>
             <a href="{{ route('admin.tribes.index') }}" class="text-sm text-slate-500 hover:text-blue-600 transition-colors">Kembali ke Daftar</a>
         </div>
@@ -31,7 +31,7 @@
             </div>
 
             <!-- Submit Button -->
-            <div class="pt-4 border-t border-slate-100 flex items-center gap-3 justify-end">
+            <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3 justify-end">
                 <a href="{{ route('admin.tribes.index') }}" class="btn-secondary">Batal</a>
                 <button type="submit" class="btn-primary">Perbarui Paket Modul</button>
             </div>

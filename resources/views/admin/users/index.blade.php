@@ -6,9 +6,9 @@
 @section('content')
 <div class="space-y-6 animate-fade-in">
     {{-- Search & Filter card --}}
-    <div class="card p-6 bg-white">
-        <form method="GET" action="{{ route('admin.users.index') }}" class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
-            <div class="md:col-span-2">
+    <div class="card p-4 sm:p-6 bg-white">
+        <form method="GET" action="{{ route('admin.users.index') }}" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+            <div class="sm:col-span-2 lg:col-span-2">
                 <label for="search" class="form-label text-xs">Cari Pengguna</label>
                 <input type="text" 
                        id="search" 
@@ -47,28 +47,28 @@
             </div>
         @else
             <div class="overflow-x-auto">
-                <table class="w-full">
+                <table class="w-full min-w-[640px]">
                     <thead>
                         <tr>
-                            <th>Nama Lengkap</th>
-                            <th>Alamat Email</th>
-                            <th>Role</th>
-                            <th>Terdaftar Pada</th>
-                            <th class="w-40 text-center">Aksi</th>
+                            <th class="whitespace-nowrap">Nama Lengkap</th>
+                            <th class="whitespace-nowrap">Alamat Email</th>
+                            <th class="whitespace-nowrap">Role</th>
+                            <th class="whitespace-nowrap">Terdaftar Pada</th>
+                            <th class="w-40 text-center whitespace-nowrap">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100">
                         @foreach($users as $user)
                             <tr class="text-slate-600">
-                                <td class="font-bold text-slate-800 py-3.5">{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>
+                                <td class="font-bold text-slate-800 py-3.5 whitespace-nowrap">{{ $user->name }}</td>
+                                <td class="whitespace-nowrap">{{ $user->email }}</td>
+                                <td class="whitespace-nowrap">
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold {{ $user->role === 'admin' ? 'bg-rose-100 text-rose-800' : ($user->role === 'konselor' ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800') }}">
                                         {{ ucfirst($user->role) }}
                                     </span>
                                 </td>
-                                <td class="text-slate-400 text-xs">{{ $user->created_at->format('d M Y H:i') }}</td>
-                                <td>
+                                <td class="text-slate-400 text-xs whitespace-nowrap">{{ $user->created_at->format('d M Y H:i') }}</td>
+                                <td class="whitespace-nowrap">
                                     <div class="flex items-center justify-center gap-2">
                                         <a href="{{ route('admin.users.edit', $user) }}" class="btn-secondary btn-sm">
                                             Edit
@@ -93,7 +93,7 @@
             </div>
 
             @if($users->hasPages())
-                <div class="p-4 border-t border-slate-100">
+                <div class="p-4 border-t border-slate-100 overflow-x-auto">
                     {{ $users->links() }}
                 </div>
             @endif

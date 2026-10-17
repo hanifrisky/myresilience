@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="max-w-2xl mx-auto space-y-6 animate-fade-in">
-    <div class="card p-6">
-        <div class="flex items-center justify-between mb-6">
+    <div class="card p-4 sm:p-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
             <h3 class="font-bold text-slate-800 text-lg">Form Grup Pilihan Baru</h3>
             <a href="{{ route('admin.option-groups.index') }}" class="text-sm text-slate-500 hover:text-blue-600 transition-colors">Kembali ke Daftar</a>
         </div>
@@ -48,7 +48,7 @@
 
             <!-- Dynamic Items -->
             <div class="space-y-4">
-                <div class="flex items-center justify-between">
+                <div class="flex flex-wrap items-center justify-between gap-2">
                     <label class="form-label mb-0">Item Opsi Pilihan & Skor</label>
                     <button type="button" @click="addItem()" class="inline-flex items-center gap-1.5 text-xs text-blue-600 hover:text-blue-700 font-bold bg-blue-50 hover:bg-blue-100/85 px-3 py-1.5 rounded-xl border border-blue-100 transition-all">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
@@ -58,8 +58,8 @@
 
                 <div class="space-y-3">
                     <template x-for="(item, index) in items" :key="index">
-                        <div class="flex items-center gap-3 p-3 bg-slate-50 border border-slate-100 rounded-2xl animate-fade-in">
-                            <div class="flex-1">
+                        <div class="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 bg-slate-50 border border-slate-100 rounded-2xl animate-fade-in">
+                            <div class="flex-1 min-w-0">
                                 <input type="text" 
                                        :name="'items[' + index + '][label]'" 
                                        x-model="item.label" 
@@ -67,15 +67,15 @@
                                        class="form-input bg-white" 
                                        placeholder="Label Opsi (misal: Sesuai)" />
                             </div>
-                            <div class="w-24">
+                            <div class="w-20 sm:w-24 flex-shrink-0">
                                 <input type="number" 
                                        :name="'items[' + index + '][score]'" 
                                        x-model.number="item.score" 
                                        required 
-                                       class="form-input bg-white text-center" 
+                                       class="form-input bg-white text-center px-2" 
                                        placeholder="Skor" />
                             </div>
-                            <button type="button" @click="removeItem(index)" class="p-2.5 text-red-500 hover:bg-red-50 rounded-xl transition-all border border-transparent hover:border-red-100">
+                            <button type="button" @click="removeItem(index)" class="p-2 sm:p-2.5 text-red-500 hover:bg-red-50 rounded-xl transition-all border border-transparent hover:border-red-100 flex-shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
                             </button>
                         </div>
@@ -84,7 +84,7 @@
             </div>
 
             <!-- Submit Button -->
-            <div class="pt-4 border-t border-slate-100 flex items-center gap-3 justify-end">
+            <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3 justify-end">
                 <a href="{{ route('admin.option-groups.index') }}" class="btn-secondary">Batal</a>
                 <button type="submit" class="btn-primary">Simpan Grup</button>
             </div>

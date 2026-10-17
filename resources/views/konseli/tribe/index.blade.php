@@ -29,7 +29,7 @@
                     @endif
 
                     <div>
-                        <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center justify-between mb-4 {{ $isSelected ? 'pr-16' : '' }}">
                             <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-lg font-bold border border-blue-100 uppercase tracking-wider">
                                 Modul Self-Help
                             </span>

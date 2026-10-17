@@ -2,11 +2,11 @@
 @section('page-title', 'Pembelajaran')
 @section('content')
 <div class="mb-8">
-    <h1 class="text-3xl font-extrabold text-slate-800 tracking-tight">Materi Pembelajaran</h1>
-    <p class="text-slate-500 mt-2 text-lg max-w-2xl">Jelajahi berbagai materi edukasi, tips, dan panduan yang telah disusun khusus untuk membantu menumbuhkan ketangguhan (resiliensi) dan kekuatan dirimu.</p>
+    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight">Materi Pembelajaran</h1>
+    <p class="text-slate-500 mt-2 text-base sm:text-lg max-w-2xl">Jelajahi berbagai materi edukasi, tips, dan panduan yang telah disusun khusus untuk membantu menumbuhkan ketangguhan (resiliensi) dan kekuatan dirimu.</p>
 </div>
 {{-- Search Bar --}}
-    <div class="sticky top-0 z-20 bg-slate-50/90 backdrop-blur pb-5 mb-8">
+    <div class="sticky top-[57px] z-20 pt-2 bg-slate-50/90 backdrop-blur pb-5 mb-8">
         <form action="{{ route('konseli.lessons.index') }}" method="GET">
             <div class="flex items-center gap-3 max-w-3xl mx-auto">
 
@@ -18,7 +18,7 @@
                         name="search"
                         value="{{ request('search') }}"
                         placeholder="Cari pembelajaran..."
-                        class="w-full h-12 pl-12 pr-4 rounded-full border border-slate-300 bg-white shadow-sm text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                        class="w-full h-12 px-5 rounded-full border border-slate-300 bg-white shadow-sm text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                     >
                 </div>
 
@@ -34,7 +34,7 @@
     </div>
 
 {{-- Lessons Grid --}}
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-20">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     @forelse($lessons as $lesson)
         <a href="{{ route('konseli.lessons.show', $lesson) }}" class="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
             <div class="aspect-video w-full bg-slate-100 relative overflow-hidden">
@@ -84,7 +84,7 @@
     @endforelse
 </div>
 {{-- Pagination --}}
-<div class="mt-8">
+<div class="mt-8 pb-8">
     {{ $lessons->links() }}
 </div>
 @endsection

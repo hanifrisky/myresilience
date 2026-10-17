@@ -12,7 +12,7 @@
 
 @section('content')
 <div class="space-y-6 animate-fade-in">
-    <div class="card p-6">
+    <div class="card p-4 sm:p-6">
         <p class="text-sm text-slate-500 mb-6">Kelola daftar paket modul self-help. Setiap paket berisi materi pembelajaran mandiri yang dirancang dengan pendekatan konseling berfokus solusi (Solution-Focused Brief Counseling / SFBC).</p>
 
         @if($tribes->isEmpty())
@@ -23,27 +23,27 @@
                 <a href="{{ route('admin.tribes.create') }}" class="btn-primary">Tambah Paket Modul</a>
             </div>
         @else
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
                 @foreach($tribes as $tribe)
-                    <div class="border border-slate-200/80 rounded-3xl p-5 hover:border-blue-400/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between bg-white relative overflow-hidden">
+                    <div class="border border-slate-200/80 rounded-3xl p-4 sm:p-5 hover:border-blue-400/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between bg-white relative overflow-hidden">
                         <div>
-                            <div class="flex items-center justify-between mb-4">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                                 <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-lg font-bold border border-blue-100 uppercase tracking-wider">
                                     Paket Modul SFBC
                                 </span>
                                 <span class="font-extrabold text-slate-400 text-xs">ID: #{{ $tribe->id }}</span>
                             </div>
                             
-                            <h4 class="font-bold text-slate-800 text-xl mb-2">{{ $tribe->name }}</h4>
+                            <h4 class="font-bold text-slate-800 text-xl mb-2 break-words">{{ $tribe->name }}</h4>
                             <p class="text-xs text-slate-400 font-semibold">{{ $tribe->materials->count() }} Materi Self-Help terdaftar</p>
                         </div>
 
                         <div class="space-y-2 mt-6 pt-4 border-t border-slate-100">
                             <a href="{{ route('admin.tribes.show', $tribe) }}" class="btn-primary btn-sm w-full flex items-center justify-center gap-1">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                                 Kelola Materi & Soal SFBC
                             </a>
-                            <div class="flex items-center gap-2">
+                            <div class="flex flex-wrap items-center gap-2">
                                 <a href="{{ route('admin.tribes.edit', $tribe) }}" class="btn-secondary btn-sm flex-1">
                                     Edit Nama
                                 </a>

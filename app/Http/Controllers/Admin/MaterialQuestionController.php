@@ -12,7 +12,7 @@ class MaterialQuestionController extends Controller
     public function store(Request $request, Material $material)
     {
         $request->validate([
-            'category' => 'required|in:W,D,E,P',
+            'category' => 'required|in:W,D,S,E,P',
             'text' => 'required|string',
         ]);
 

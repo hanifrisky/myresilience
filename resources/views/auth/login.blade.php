@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="mb-6 text-center">
-        <h2 class="text-xl font-bold text-white">Selamat Datang Kembali</h2>
-        <p class="text-sm text-blue-200/60 mt-1">Silakan masuk menggunakan akun Anda</p>
+        <h2 class="text-xl font-bold text-slate-900">Selamat Datang Kembali</h2>
+        <p class="text-sm text-slate-500 mt-1">Silakan masuk menggunakan akun MY RESILIENCE Anda</p>
     </div>
 
     <!-- Session Status -->
@@ -12,7 +12,7 @@
 
         <!-- Email Address -->
         <div>
-            <label for="email" class="block text-sm font-medium text-blue-200 mb-1.5">Alamat Email</label>
+            <label for="email" class="form-label">Alamat Email</label>
             <input id="email" 
                    type="email" 
                    name="email" 
@@ -20,7 +20,7 @@
                    required 
                    autofocus 
                    autocomplete="username"
-                   class="block w-full bg-white/5 border border-white/10 text-white focus:border-blue-500 focus:ring-blue-500 rounded-xl px-4 py-2.5 transition-all duration-300 text-sm placeholder-slate-400"
+                   class="form-input"
                    placeholder="nama@email.com" />
             <x-input-error :messages="$errors->get('email')" class="mt-1" />
         </div>
@@ -28,12 +28,7 @@
         <!-- Password -->
         <div>
             <div class="flex items-center justify-between mb-1.5">
-                <label for="password" class="block text-sm font-medium text-blue-200">Kata Sandi</label>
-                <!-- @if (Route::has('password.request'))
-                    <a class="text-xs text-blue-400 hover:text-blue-300 transition-colors" href="{{ route('password.request') }}">
-                        Lupa sandi?
-                    </a>
-                @endif -->
+                <label for="password" class="form-label mb-0">Kata Sandi</label>
             </div>
             <div class="relative" x-data="{ show: false }">
                 <input id="password" 
@@ -41,11 +36,11 @@
                        name="password" 
                        required 
                        autocomplete="current-password"
-                       class="block w-full bg-white/5 border border-white/10 text-white focus:border-blue-500 focus:ring-blue-500 rounded-xl pl-4 pr-12 py-2.5 transition-all duration-300 text-sm placeholder-slate-400"
+                       class="form-input pr-12"
                        placeholder="••••••••" />
                 <button type="button" 
                         @click="show = !show" 
-                        class="absolute right-3 top-1/2 -translate-y-1/2 text-blue-200/50 hover:text-white transition-colors focus:outline-none p-1.5"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-blue-600 transition-colors focus:outline-none p-1.5"
                         title="Tampilkan/Sembunyikan Kata Sandi">
                     <svg x-show="!show" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -65,19 +60,19 @@
                 <input id="remember_me" 
                        type="checkbox" 
                        name="remember"
-                       class="rounded bg-white/5 border-white/10 text-blue-600 focus:ring-blue-500 focus:ring-offset-slate-900 focus:ring-2">
-                <span class="ms-2 text-xs text-blue-200/80">Ingat saya</span>
+                       class="rounded border-slate-300 text-blue-600 focus:ring-blue-500">
+                <span class="ms-2 text-xs text-slate-600 font-medium">Ingat saya</span>
             </label>
         </div>
 
         <div>
-            <button type="submit" class="w-full flex items-center justify-center px-4 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-300 text-sm">
+            <button type="submit" class="w-full btn-primary py-3">
                 Masuk ke Dashboard
             </button>
         </div>
 
-        <div class="text-center mt-6">
-            <p class="text-xs text-blue-200/50">Belum punya akun? <a href="{{ route('register') }}" class="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Daftar sekarang</a></p>
+        <div class="text-center mt-6 pt-4 border-t border-slate-100">
+            <p class="text-xs text-slate-500">Belum punya akun? <a href="{{ route('register') }}" class="text-blue-600 hover:text-blue-700 font-bold transition-colors">Register akun sekarang</a></p>
         </div>
     </form>
 </x-guest-layout>

@@ -2,118 +2,164 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tribe;
 use App\Models\Material;
 use App\Models\MaterialQuestion;
+use App\Models\Tribe;
 use Illuminate\Database\Seeder;
 
 class ResilienceSelfHelpSeeder extends Seeder
 {
     public function run(): void
     {
-        $module = Tribe::firstOrCreate(['name' => 'Modul Self-Help Resiliensi (SFBC)']);
+        // Bersihkan data modul lama agar sesuai struktur 5 Modul SFBC-Resiliensi terbaru
+        Tribe::query()->delete();
 
+        $module = Tribe::create([
+            'name' => 'Modul Self-Help SFBC-Resiliensi',
+        ]);
+
+        // Pemetaan Kategori Tahapan SFBC:
+        // W = Tahap 1: Tujuan
+        // D = Tahap 2: Penemuan Exception
+        // S = Tahap 3: Pelaksanaan Solusi
+        // E = Tahap 4: Scaling
+        // P = Tahap 5: Tugas
         $materials = [
             [
-                'title' => 'Sesi 1: Menemukan Harapan & Masa Depan Terbaik (Miracle & Goal Setting)',
-                'values' => 'Optimisme, Orientasi Masa Depan, Kebermaknaan Diri',
-                'description' => 'Dalam pendekatan Solution-Focused Brief Counseling (SFBC), langkah pertama untuk bangkit dari kerentanan psikologis adalah mengalihkan fokus dari masalah masa lalu menuju gambaran masa depan yang kamu harapkan. Setiap tantangan menyimpan peluang untuk bertumbuh ketika kamu memiliki arah dan tujuan yang jelas.',
+                'title' => '1. Modul Regulasi Diri (Mengelola Emosi & Ketenangan)',
+                'values' => 'Self Regulation, Mengelola Emosi, Ketenangan Diri',
+                'description' => 'Pernah merasa kesal, marah, atau tertekan sampai rasanya sulit berpikir jernih? Itu wajar kok! Di modul ini, kita akan bereksplorasi menemukan cara-cara sederhana yang paling cocok buat kamu untuk mengelola emosi dan menjaga ketenangan diri saat menghadapi situasi sulit.',
                 'order' => 1,
                 'questions' => [
                     'W' => [
-                        'Bayangkan jika malam ini saat kamu tidur terjadi sebuah keajaiban dan masalah yang membebani pikiranmu tiba-tiba teratasi. Ketika kamu bangun besok pagi, hal berbeda apa yang pertama kali kamu sadari pada dirimu?',
-                        'Apa harapan atau tujuan positif paling penting yang ingin kamu wujudkan bagi dirimu dalam waktu dekat ini?',
+                        'Bayangkan besok kamu bangun tidur dan emosimu terasa jauh lebih kesal. Hal kecil apa yang pertama kali ingin kamu lakukan agar bisa tenang?',
                     ],
                     'D' => [
-                        'Ceritakan momen di masa lalu ketika kamu pernah menghadapi situasi sulit namun berhasil melewatinya. Bagaimana kamu berhasil bertahan saat itu?',
-                        'Bagian kecil apa dari gambaran "keajaiban" atau harapanmu tadi yang sebenarnya sudah mulai terjadi atau pernah kamu lakukan baru-baru ini?',
+                        'Kapan terakhir kali kamu merasa kesal atau marah, tapi berhasil menahan diri? Apa yang kamu lakukan waktu itu hingga bisa tenang?',
+                    ],
+                    'S' => [
+                        'Trik menenangkan diri mana yang paling cocok untukmu dan ingin kamu coba lagi hari ini?',
                     ],
                     'E' => [
-                        'Pada skala 1 sampai 10 (1 = titik terberat, 10 = masa depan terbaik yang kamu harapkan sudah tercapai), di angka berapa posisimu saat ini?',
-                        'Apa yang membuatmu sudah berhasil berada di angka tersebut dan tidak berada di angka yang lebih rendah?',
+                        'Dari angka 1 – 10 (1 = gampang kesal/marah dan 10 = tenang banget), kamu ada di angka berapa hari ini? Apa hal kecil yang bisa bikin kamu naik 1 angka lebih tenang?',
                     ],
                     'P' => [
-                        'Langkah kecil dan sederhana apa yang bisa kamu lakukan dalam 24 jam ke depan agar posisimu naik 1 angka pada skala kemajuanmu?',
-                        'Siapa orang di sekitarmu yang akan menyadari bahwa kamu sedang melangkah menjadi pribadi yang lebih tangguh, dan perubahan apa yang mereka lihat darimu?',
+                        'Misi Hari Ini: Langkah-langkah kecil apa yang akan dilakukan agar kamu dapat hidup lebih tenang?',
                     ],
                 ],
             ],
             [
-                'title' => 'Sesi 2: Mengenali Kekuatan Diri & Pengecualian Masalah (Exceptions & Strengths)',
-                'values' => 'Efikasi Diri, Regulasi Emosi, Ketangguhan Mental',
-                'description' => 'Tidak ada masalah yang berlangsung terus-menerus dengan intensitas yang sama setiap detik. Selalu ada "momen pengecualian" (exceptions)—yaitu saat-saat ketika keadaan terasa lebih tenang atau terkendali. Mengenali momen tersebut membantumu menyadari kekuatan internal yang sudah ada di dalam dirimu.',
+                'title' => '2. Modul Kapasitas Adaptif (Menyesuaikan Diri & Bangkit)',
+                'values' => 'Adaptive Capacity, Penyesuaian Diri, Bangkit dari Kegagalan',
+                'description' => 'Kadang rencana yang sudah kita susun rapi bisa berubah mendadak atau berjalan tidak sesuai harapan. Lewat modul ini, kamu diajak mengenali kembali pengalaman keberhasilanmu dalam menyesuaikan diri di masa lalu dan merancang langkah kecil agar tetap tangguh menghadapi perubahan.',
                 'order' => 2,
                 'questions' => [
                     'W' => [
-                        'Ketika kamu mampu mengelola emosi dan pikiranmu dengan lebih tenang, hal positif apa yang paling ingin kamu rasakan dalam keseharianmu?',
-                        'Kualitas pribadi tangguh seperti apa yang ingin kamu tumbuhkan di dalam dirimu saat menghadapi tekanan?',
+                        'Kalau rencana yang kamu buat mendadak berantakan besok, penyesuaian-diri seperti apa yang ingin kamu tunjukkan?',
                     ],
                     'D' => [
-                        'Kapan terakhir kali masalah yang kamu hadapi terasa lebih ringan atau tidak terlalu mengganggumu? Apa yang sedang kamu pikirkan atau lakukan pada saat itu?',
-                        'Sebutkan minimal 3 kekuatan diri, bakat, atau kualitas positif yang kamu miliki yang selama ini membantumu tetap bertahan!',
+                        'Coba ingat saat kamu pernah gagal atau menghadapi perubahan mendadak di masa lalu. Apa yang akhirnya bikin kamu bisa menyesuaikan diri lagi?',
+                    ],
+                    'S' => [
+                        'Cara penyesuaian diri apa yang pernah berhasil dulu dan mau kamu pakai lagi untuk menghadapi masalahmu sekarang?',
                     ],
                     'E' => [
-                        'Pada skala 1 sampai 10, seberapa yakin kamu bahwa kekuatan dirimu mampu membantumu menghadapi tantangan hari ini?',
-                        'Hal baik apa yang sudah kamu lakukan minggu ini yang patut kamu apresiasi dari dirimu sendiri?',
+                        'Dari angka 1 – 10 (1 = Sangat tidak bisa menyesuaikan diri – 10 = Sangat bisa menyesuaikan diri) dalam menghadapi situasi yang tidak sesuai harapan, kamu berada di angka berapa sekarang? Apa yang akan kamu lakukan agar naik satu angka semakin dapat menyesuaikan diri?',
                     ],
                     'P' => [
-                        'Bagaimana cara kamu mengulangi atau memperbanyak "momen pengecualian" (hal-hal yang membuatmu merasa lebih baik) dalam minggu ini?',
-                        'Kebiasaan positif kecil apa yang akan kamu pilih untuk dilakukan saat kamu mulai merasa tertekan kembali?',
+                        'Misi Hari Ini: Pilih minimal dua langkah kecil yang akan dilakukan agar dapat menyesuaikan diri dengan situasi yang berada di luar harapanmu?',
                     ],
                 ],
             ],
             [
-                'title' => 'Sesi 3: Merancang Langkah Solusi & Dukungan Keberlanjutan (Scaling & Action Plan)',
-                'values' => 'Kemandirian, Dukungan Sosial, Pemecahan Masalah Berfokus Solusi',
-                'description' => 'Perubahan besar selalu dimulai dari langkah-langkah kecil yang konkret dan konsisten. Pada sesi ini, kamu diajak merumuskan rencana aksi nyata yang berada dalam kendalimu serta mengidentifikasi sumber daya dukungan di sekitarmu untuk menjaga ketangguhan dirimu.',
+                'title' => '3. Modul Pemecahan Masalah (Mencari Jalan Keluar)',
+                'values' => 'Problem Solving Competence, Mencari Jalan Keluar, Fokus Solusi',
+                'description' => 'Setiap masalah pasti punya jalan keluar jika kita melihatnya selangkah demi selangkah. Di modul ini, kamu akan diajak berfokus pada solusi dan memilih tindakan paling sederhana yang siap kamu coba untuk membawa perubahan positif.',
                 'order' => 3,
                 'questions' => [
                     'W' => [
-                        'Perubahan nyata apa yang ingin kamu lihat dalam aktivitas belajar dan relasi sosialmu setelah menyelesaikan sesi self-help ini?',
-                        'Apa tanda paling sederhana yang menunjukkan bahwa kamu sudah lebih tangguh (resilien) dibandingkan sebelumnya?',
+                        'Kalau masalah utamamu selesai begitu saja besok pagi, perubahan positif apa yang bakal dilihat teman atau keluarga dari dirimu?',
                     ],
                     'D' => [
-                        'Strategi atau cara apa yang selama ini paling berhasil membantumu bangkit ketika mengalami kegagalan atau kekecewaan?',
-                        'Siapa saja orang atau lingkungan pendukung (keluarga, teman, guru BK/konselor) yang memberi energi positif bagi perkembangan dirimu?',
+                        'Pernah nggak kamu menghadapi masalah yang mirip, tapi dampaknya nggak seburuk itu? Langkah cerdas apa yang kamu ambil waktu itu?',
+                    ],
+                    'S' => [
+                        'Dari beberapa pilihan jalan keluar yang ada di pikiranmu, tindakan paling kecil mana yang paling siap kamu coba sekarang?',
                     ],
                     'E' => [
-                        'Pada skala 1 sampai 10, di angka berapa kesiapan dan komitmenmu saat ini untuk mempraktikkan solusi yang telah kamu temukan?',
-                        'Apa yang kamu pelajari tentang ketangguhan dirimu setelah berefleksi melalui rangkaian sesi self-help ini?',
+                        'Dari angka 1 – 10 (1 = sangat tidak yakin – 10 = Sangat yakin), pada angka berapa keyakinan kamu dengan cara penyelesaian masalahmu saat ini? Ide baru apa yang bisa bikin angkamu naik 1 tingkat?',
                     ],
                     'P' => [
-                        'Tuliskan 2 langkah konkret, realistis, dan terukur yang akan kamu jalankan mulai hari ini untuk menjaga resiliensi dirimu!',
-                        'Hal penting apa dari hasil sesi self-help ini yang ingin kamu komunikasikan atau diskusikan lebih lanjut bersama konselormu?',
+                        'Misi Hari Ini: Pilih minimal dua langkah yang gampang, lalu lakukan langkah itu untuk dapat mencapai perubahan positif!',
+                    ],
+                ],
+            ],
+            [
+                'title' => '4. Modul Keterikatan Sosial (Membangun Hubungan & Meminta Bantuan)',
+                'values' => 'Social Connectedness, Dukungan Sosial, Keberanian Meminta Bantuan',
+                'description' => 'Kamu nggak harus menghadapi semuanya sendirian! Meminta bantuan atau bercerita kepada orang yang tepat justru tanda bahwa kamu peduli pada dirimu sendiri. Mari temukan cara nyaman untuk terhubung dan membangun dukungan positif dengan orang-orang di sekitarmu.',
+                'order' => 4,
+                'questions' => [
+                    'W' => [
+                        'Bayangkan kamu nggak merasa sendirian lagi besok. Bagaimana caramu menyapa atau mengobrol dengan orang-orang di sekitarmu?',
+                    ],
+                    'D' => [
+                        'Kapan terakhir kali kamu memberanikan diri cerita atau minta bantuan kepada orang lain, dan ternyata respons mereka baik banget?',
+                    ],
+                    'S' => [
+                        'Bantuan atau dukungan seperti apa yang paling kamu butuhkan saat ini dari orang-orang terdekatmu?',
+                    ],
+                    'E' => [
+                        'Kalau rasa dekatmu dengan orang lain ada di angka 4 hari ini (dimana 1 = sangat jauh dan 10 = Sangat dekat), Apa yang akan dilakukan agar berada 1 tingkat di atas angka 4 tersebut?',
+                    ],
+                    'P' => [
+                        'Misi Hari Ini: Lakukan minimal dua langkah kecil yang mudah dilakukan untuk bisa mendekati orang lain.',
+                    ],
+                ],
+            ],
+            [
+                'title' => '5. Modul Orientasi Pertumbuhan (Semangat Maju & Belajar)',
+                'values' => 'Growth Orientation, Semangat Belajar, Pemanfaatan Digital Positif',
+                'description' => 'Setiap tantangan adalah kesempatan buat belajar dan berkembang menjadi versi dirimu yang lebih baik. Di modul terakhir ini, mari perjelas impian masa depanmu dan manfaatkan berbagai sarana—termasuk teknologi digital—untuk mendukung pertumbuhan dirimu!',
+                'order' => 5,
+                'questions' => [
+                    'W' => [
+                        'Kalau hidupmu berjalan makin baik ke depannya, impian atau keahlian baru apa yang paling ingin kamu capai?',
+                    ],
+                    'D' => [
+                        'Kapan kamu merasa paling bersemangat belajar hal baru atau memakai internet/HP untuk hal-hal yang berguna buat dirimu?',
+                    ],
+                    'S' => [
+                        'Kegiatan positif atau materi belajar apa yang paling ingin kamu coba hari ini untuk meningkatkan kemampuanmu?',
+                    ],
+                    'E' => [
+                        'Dari angka 1 - 10 (1 = sangat tidak jelas – 10 = sangat jelas), pada angka berapa kejelasan gambaran masa depan yang kamu inginkan saat ini? Hal kecil apa yang bisa bikin gambaran itu makin jelas satu tingkat di atas angkamu sekarang?',
+                    ],
+                    'P' => [
+                        'Misi Hari Ini: Hal-hal kecil apa yang akan dilakukan agar gambaran masa depanmu dapat dicapai dengan baik?',
                     ],
                 ],
             ],
         ];
 
         foreach ($materials as $mData) {
-            $material = Material::updateOrCreate(
-                [
-                    'tribe_id' => $module->id,
-                    'title' => $mData['title']
-                ],
-                [
-                    'values' => $mData['values'],
-                    'description' => $mData['description'],
-                    'order' => $mData['order'],
-                ]
-            );
+            $material = Material::create([
+                'tribe_id' => $module->id,
+                'title' => $mData['title'],
+                'values' => $mData['values'],
+                'description' => $mData['description'],
+                'order' => $mData['order'],
+            ]);
 
             $order = 1;
             foreach ($mData['questions'] as $category => $qTexts) {
                 foreach ($qTexts as $text) {
-                    MaterialQuestion::firstOrCreate(
-                        [
-                            'material_id' => $material->id,
-                            'category' => $category,
-                            'text' => $text,
-                        ],
-                        [
-                            'order' => $order++
-                        ]
-                    );
+                    MaterialQuestion::create([
+                        'material_id' => $material->id,
+                        'category' => $category,
+                        'text' => $text,
+                        'order' => $order++,
+                    ]);
                 }
             }
         }

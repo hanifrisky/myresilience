@@ -11,43 +11,43 @@
 
 @section('content')
 <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-    <div class="p-6 border-b border-slate-200">
+    <div class="p-4 sm:p-6 border-b border-slate-200">
         <h3 class="text-lg font-bold text-slate-800">Daftar Lesson</h3>
         <p class="text-slate-500 text-sm mt-1">Kelola materi edukasi untuk konseli</p>
     </div>
     
     <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse">
+        <table class="w-full min-w-[640px] text-left border-collapse">
             <thead>
                 <tr class="bg-slate-50 text-slate-500 text-sm border-b border-slate-200">
-                    <th class="px-6 py-4 font-medium">Judul Lesson</th>
-                    <th class="px-6 py-4 font-medium">Kategori/Tag</th>
-                    <th class="px-6 py-4 font-medium">Pembuat</th>
-                    <th class="px-6 py-4 font-medium">Jumlah Section</th>
-                    <th class="px-6 py-4 font-medium text-right">Aksi</th>
+                    <th class="px-4 sm:px-6 py-3.5 sm:py-4 font-medium">Judul Lesson</th>
+                    <th class="px-4 sm:px-6 py-3.5 sm:py-4 font-medium whitespace-nowrap">Kategori/Tag</th>
+                    <th class="px-4 sm:px-6 py-3.5 sm:py-4 font-medium whitespace-nowrap">Pembuat</th>
+                    <th class="px-4 sm:px-6 py-3.5 sm:py-4 font-medium whitespace-nowrap">Jumlah Section</th>
+                    <th class="px-4 sm:px-6 py-3.5 sm:py-4 font-medium text-right whitespace-nowrap">Aksi</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-200">
                 @forelse($lessons as $lesson)
                 <tr class="hover:bg-slate-50 transition-colors">
-                    <td class="px-6 py-4">
+                    <td class="px-4 sm:px-6 py-3.5 sm:py-4">
                         <div class="font-semibold text-slate-800">{{ $lesson->title }}</div>
                         <div class="text-xs text-slate-500 mt-1">{{ $lesson->created_at->format('d M Y') }}</div>
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-4 sm:px-6 py-3.5 sm:py-4 whitespace-nowrap">
                         @if($lesson->tag)
                             <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">{{ $lesson->tag }}</span>
                         @else
                             <span class="text-slate-400 text-sm">-</span>
                         @endif
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-4 sm:px-6 py-3.5 sm:py-4 whitespace-nowrap">
                         <div class="text-sm font-medium text-slate-700">{{ $lesson->creator->name ?? 'Sistem' }}</div>
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-4 sm:px-6 py-3.5 sm:py-4 whitespace-nowrap">
                         <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-semibold rounded-lg">{{ $lesson->sections_count }} Section</span>
                     </td>
-                    <td class="px-6 py-4 text-right">
+                    <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-right whitespace-nowrap">
                         <div class="flex items-center justify-end gap-2">
                             <a href="{{ route('admin.lessons.edit', $lesson) }}" class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Edit">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
@@ -64,7 +64,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="5" class="px-6 py-12 text-center text-slate-500">
+                    <td colspan="5" class="px-4 sm:px-6 py-12 text-center text-slate-500">
                         Belum ada lesson yang ditambahkan.
                     </td>
                 </tr>

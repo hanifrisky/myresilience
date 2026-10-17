@@ -21,7 +21,7 @@ return new class extends Migration
         Schema::create('material_questions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('material_id')->constrained('materials')->cascadeOnDelete();
-            $table->enum('category', ['W', 'D', 'E', 'P']);
+            $table->enum('category', ['W', 'D', 'S', 'E', 'P']);
             $table->text('text');
             $table->integer('order')->default(0);
             $table->timestamps();

@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="max-w-xl mx-auto space-y-6 animate-fade-in">
-    <div class="card p-6">
-        <div class="flex items-center justify-between mb-6">
+    <div class="card p-4 sm:p-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
             <h3 class="font-bold text-slate-800 text-lg">Form Edit Interpretasi</h3>
             <a href="{{ route('admin.interpretations.index') }}" class="text-sm text-slate-500 hover:text-blue-600 transition-colors">Kembali ke Daftar</a>
         </div>
@@ -16,7 +16,7 @@
             @method('PUT')
 
             <!-- Range Scores -->
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label for="min_score" class="form-label">Skor Minimal</label>
                     <input type="number" 
@@ -62,7 +62,7 @@
             </div>
 
             <!-- Submit Button -->
-            <div class="pt-4 border-t border-slate-100 flex items-center gap-3 justify-end">
+            <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3 justify-end">
                 <a href="{{ route('admin.interpretations.index') }}" class="btn-secondary">Batal</a>
                 <button type="submit" class="btn-primary">Perbarui Interpretasi</button>
             </div>

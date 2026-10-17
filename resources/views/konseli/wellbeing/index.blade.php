@@ -30,18 +30,18 @@
 
                 @if($preTest)
                     <div class="p-4 bg-slate-50 border border-slate-100 rounded-2xl mb-6">
-                        <div class="flex justify-between text-xs text-slate-500 mb-1.5">
-                            <span>Nama Pengisi:</span>
-                            <span class="font-bold text-slate-700">{{ $preTest->konseli_name }}</span>
+                        <div class="flex justify-between gap-2 text-xs text-slate-500 mb-1.5">
+                            <span class="flex-shrink-0">Nama Pengisi:</span>
+                            <span class="font-bold text-slate-700 truncate text-right">{{ $preTest->konseli_name }}</span>
                         </div>
                         @if($preTest->status === 'completed')
-                            <div class="flex justify-between text-xs text-slate-500 mb-1.5">
-                                <span>Skor Diperoleh:</span>
-                                <span class="font-bold text-blue-600">{{ $preTest->total_score }} Poin</span>
+                            <div class="flex justify-between gap-2 text-xs text-slate-500 mb-1.5">
+                                <span class="flex-shrink-0">Skor Diperoleh:</span>
+                                <span class="font-bold text-blue-600 text-right">{{ $preTest->total_score }} Poin</span>
                             </div>
-                            <div class="flex justify-between text-xs text-slate-500">
-                                <span>Tanggal Selesai:</span>
-                                <span class="font-medium text-slate-700">{{ $preTest->completed_at->format('d M Y') }}</span>
+                            <div class="flex justify-between gap-2 text-xs text-slate-500">
+                                <span class="flex-shrink-0">Tanggal Selesai:</span>
+                                <span class="font-medium text-slate-700 truncate text-right">{{ $preTest->completed_at->format('d M Y') }}</span>
                             </div>
                         @else
                             <p class="text-xs text-amber-600 font-bold">Pengisian draf instrumen sedang aktif.</p>
@@ -94,18 +94,18 @@
 
                 @if($postTest)
                     <div class="p-4 bg-slate-50 border border-slate-100 rounded-2xl mb-6">
-                        <div class="flex justify-between text-xs text-slate-500 mb-1.5">
-                            <span>Nama Pengisi:</span>
-                            <span class="font-bold text-slate-700">{{ $postTest->konseli_name }}</span>
+                        <div class="flex justify-between gap-2 text-xs text-slate-500 mb-1.5">
+                            <span class="flex-shrink-0">Nama Pengisi:</span>
+                            <span class="font-bold text-slate-700 truncate text-right">{{ $postTest->konseli_name }}</span>
                         </div>
                         @if($postTest->status === 'completed')
-                            <div class="flex justify-between text-xs text-slate-500 mb-1.5">
-                                <span>Skor Diperoleh:</span>
-                                <span class="font-bold text-indigo-600">{{ $postTest->total_score }} Poin</span>
+                            <div class="flex justify-between gap-2 text-xs text-slate-500 mb-1.5">
+                                <span class="flex-shrink-0">Skor Diperoleh:</span>
+                                <span class="font-bold text-indigo-600 text-right">{{ $postTest->total_score }} Poin</span>
                             </div>
-                            <div class="flex justify-between text-xs text-slate-500">
-                                <span>Tanggal Selesai:</span>
-                                <span class="font-medium text-slate-700">{{ $postTest->completed_at->format('d M Y') }}</span>
+                            <div class="flex justify-between gap-2 text-xs text-slate-500">
+                                <span class="flex-shrink-0">Tanggal Selesai:</span>
+                                <span class="font-medium text-slate-700 truncate text-right">{{ $postTest->completed_at->format('d M Y') }}</span>
                             </div>
                         @else
                             <p class="text-xs text-amber-600 font-bold">Ujian draf Anda sedang aktif.</p>

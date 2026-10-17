@@ -35,7 +35,7 @@
         <div class="grid grid-cols-1 gap-4">
             
             {{-- Step 1: Choose Counselor --}}
-            <div class="card p-5 flex items-start gap-4 {{ $counselorSelected ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200' }}">
+            <div class="card p-4 sm:p-5 flex items-start gap-3.5 sm:gap-4 {{ $counselorSelected ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200' }}">
                 <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 font-bold text-sm {{ $counselorSelected ? 'bg-emerald-100 text-emerald-600' : 'bg-blue-100 text-blue-600' }}">
                     @if($counselorSelected)
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
@@ -44,9 +44,9 @@
                     @endif
                 </div>
                 <div class="flex-1 min-w-0">
-                    <div class="flex items-center justify-between gap-2">
+                    <div class="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2">
                         <h5 class="font-bold text-slate-800 text-sm">Langkah 1: Memilih Konselor</h5>
-                        <span class="text-xs font-bold {{ $counselorSelected ? 'text-emerald-600 bg-emerald-100/60' : 'text-amber-600 bg-amber-50' }} px-2.5 py-0.5 rounded-lg border border-current/10">
+                        <span class="flex-shrink-0 whitespace-nowrap text-xs font-bold {{ $counselorSelected ? 'text-emerald-600 bg-emerald-100/60' : 'text-amber-600 bg-amber-50' }} px-2.5 py-0.5 rounded-lg border border-current/10">
                             {{ $counselorSelected ? 'Selesai' : 'Belum Selesai' }}
                         </span>
                     </div>
@@ -66,7 +66,7 @@
             </div>
 
             {{-- Step 2: Pre-Test Resiliensi --}}
-            <div class="card p-5 flex items-start gap-4 {{ $preTestCompleted ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200' }}">
+            <div class="card p-4 sm:p-5 flex items-start gap-3.5 sm:gap-4 {{ $preTestCompleted ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200' }}">
                 <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 font-bold text-sm {{ $preTestCompleted ? 'bg-emerald-100 text-emerald-600' : 'bg-blue-100 text-blue-600' }}">
                     @if($preTestCompleted)
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
@@ -75,9 +75,9 @@
                     @endif
                 </div>
                 <div class="flex-1 min-w-0">
-                    <div class="flex items-center justify-between gap-2">
+                    <div class="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2">
                         <h5 class="font-bold text-slate-800 text-sm">Langkah 2: Mengisi Instrumen Resiliensi Sebelum Sesi Self-Help (Pre-Test)</h5>
-                        <span class="text-xs font-bold {{ $preTestCompleted ? 'text-emerald-600 bg-emerald-100/60' : 'text-amber-600 bg-amber-50' }} px-2.5 py-0.5 rounded-lg border border-current/10">
+                        <span class="flex-shrink-0 whitespace-nowrap text-xs font-bold {{ $preTestCompleted ? 'text-emerald-600 bg-emerald-100/60' : 'text-amber-600 bg-amber-50' }} px-2.5 py-0.5 rounded-lg border border-current/10">
                             {{ $preTestCompleted ? 'Selesai' : 'Belum Selesai' }}
                         </span>
                     </div>
@@ -93,7 +93,7 @@
             </div>
 
             {{-- Step 3: Sesi Self-Help --}}
-            <div class="card p-5 flex items-start gap-4 {{ $hasSelfHelpAnswers ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200' }}">
+            <div class="card p-4 sm:p-5 flex items-start gap-3.5 sm:gap-4 {{ $hasSelfHelpAnswers ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200' }}">
                 <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 font-bold text-sm {{ $hasSelfHelpAnswers ? 'bg-emerald-100 text-emerald-600' : 'bg-blue-100 text-blue-600' }}">
                     @if($hasSelfHelpAnswers)
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
@@ -102,9 +102,9 @@
                     @endif
                 </div>
                 <div class="flex-1 min-w-0">
-                    <div class="flex items-center justify-between gap-2">
+                    <div class="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2">
                         <h5 class="font-bold text-slate-800 text-sm">Langkah 3: Melakukan Sesi Self-Help Berfokus Solusi</h5>
-                        <span class="text-xs font-bold {{ $hasSelfHelpAnswers ? 'text-emerald-600 bg-emerald-100/60' : 'text-amber-600 bg-amber-50' }} px-2.5 py-0.5 rounded-lg border border-current/10">
+                        <span class="flex-shrink-0 whitespace-nowrap text-xs font-bold {{ $hasSelfHelpAnswers ? 'text-emerald-600 bg-emerald-100/60' : 'text-amber-600 bg-amber-50' }} px-2.5 py-0.5 rounded-lg border border-current/10">
                             {{ $hasSelfHelpAnswers ? 'Selesai' : 'Belum Selesai' }}
                         </span>
                     </div>
@@ -120,7 +120,7 @@
             </div>
 
             {{-- Step 4: Post-Test Resiliensi --}}
-            <div class="card p-5 flex items-start gap-4 {{ $postTestCompleted ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200' }}">
+            <div class="card p-4 sm:p-5 flex items-start gap-3.5 sm:gap-4 {{ $postTestCompleted ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200' }}">
                 <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 font-bold text-sm {{ $postTestCompleted ? 'bg-emerald-100 text-emerald-600' : 'bg-blue-100 text-blue-600' }}">
                     @if($postTestCompleted)
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
@@ -129,9 +129,9 @@
                     @endif
                 </div>
                 <div class="flex-1 min-w-0">
-                    <div class="flex items-center justify-between gap-2">
+                    <div class="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2">
                         <h5 class="font-bold text-slate-800 text-sm">Langkah 4: Mengisi Instrumen Resiliensi Setelah Sesi Self-Help (Post-Test)</h5>
-                        <span class="text-xs font-bold {{ $postTestCompleted ? 'text-emerald-600 bg-emerald-100/60' : 'text-amber-600 bg-amber-50' }} px-2.5 py-0.5 rounded-lg border border-current/10">
+                        <span class="flex-shrink-0 whitespace-nowrap text-xs font-bold {{ $postTestCompleted ? 'text-emerald-600 bg-emerald-100/60' : 'text-amber-600 bg-amber-50' }} px-2.5 py-0.5 rounded-lg border border-current/10">
                             {{ $postTestCompleted ? 'Selesai' : 'Belum Selesai' }}
                         </span>
                     </div>
@@ -143,7 +143,7 @@
                             @if($preTestCompleted && $hasSelfHelpAnswers)
                                 <a href="{{ route('konseli.wellbeing.index') }}" class="btn-primary btn-sm bg-gradient-to-r from-blue-500 to-blue-600">Isi Instrumen Post-Test</a>
                             @else
-                                <button disabled class="btn-secondary btn-sm cursor-not-allowed opacity-50">Isi Post-Test (Selesaikan Pre-Test & Self-Help Dulu)</button>
+                                <button disabled class="btn-secondary btn-sm cursor-not-allowed opacity-50 whitespace-normal text-left sm:text-center">Isi Post-Test (Selesaikan Pre-Test & Self-Help Dulu)</button>
                             @endif
                         @endif
                     </div>
@@ -151,12 +151,12 @@
             </div>
 
             {{-- Step 5: Komunikasi Hasil & Tindak Lanjut --}}
-            <div class="card p-5 flex items-start gap-4 {{ ($postTestCompleted && $counselorSelected) ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200' }}">
+            <div class="card p-4 sm:p-5 flex items-start gap-3.5 sm:gap-4 {{ ($postTestCompleted && $counselorSelected) ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200' }}">
                 <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 font-bold text-sm {{ ($postTestCompleted && $counselorSelected) ? 'bg-emerald-100 text-emerald-600' : 'bg-blue-100 text-blue-600' }}">
                     5
                 </div>
                 <div class="flex-1 min-w-0">
-                    <div class="flex items-center justify-between gap-2">
+                    <div class="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2">
                         <h5 class="font-bold text-slate-800 text-sm">Langkah 5: Komunikasi Hasil Self-Help & Konseling Lanjutan</h5>
                     </div>
                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">Komunikasikan hasil self-help Anda dengan konselor pendamping, serta hubungi konselor sekolah jika dibutuhkan sesi konseling lanjutan.</p>

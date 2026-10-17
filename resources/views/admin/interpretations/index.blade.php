@@ -12,7 +12,7 @@
 
 @section('content')
 <div class="space-y-6 animate-fade-in">
-    <div class="card p-6">
+    <div class="card p-4 sm:p-6">
         <p class="text-sm text-slate-500 mb-6">Interpretasi hasil digunakan untuk mengklasifikasikan total skor instrumen resiliensi konseli ke dalam kategori tingkat ketangguhan mental tertentu beserta rekomendasi tindak lanjutnya.</p>
 
         @if($interpretations->isEmpty())
@@ -23,11 +23,11 @@
                 <a href="{{ route('admin.interpretations.create') }}" class="btn-primary">Tambah Interpretasi Baru</a>
             </div>
         @else
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 sm:gap-6">
                 @foreach($interpretations as $interp)
-                    <div class="border border-slate-200/80 rounded-2xl p-5 hover:border-blue-400/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                    <div class="border border-slate-200/80 rounded-2xl p-4 sm:p-5 hover:border-blue-400/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                         <div>
-                            <div class="flex items-center justify-between mb-3 border-b border-slate-100 pb-3">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b border-slate-100 pb-3">
                                 <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-lg font-bold border border-blue-100 uppercase tracking-wider">
                                     Rentang Skor
                                 </span>
@@ -36,12 +36,12 @@
                                 </span>
                             </div>
                             
-                            <p class="text-sm text-slate-600 mt-4 leading-relaxed font-medium">
+                            <p class="text-sm text-slate-600 mt-4 leading-relaxed font-medium break-words">
                                 {{ $interp->description }}
                             </p>
                         </div>
 
-                        <div class="flex items-center gap-2 mt-6 pt-4 border-t border-slate-100">
+                        <div class="flex flex-wrap items-center gap-2 mt-6 pt-4 border-t border-slate-100">
                             <a href="{{ route('admin.interpretations.edit', $interp) }}" class="btn-secondary btn-sm flex-1">
                                 Edit
                             </a>

@@ -10,13 +10,23 @@
 <div class="space-y-6 pb-16 animate-fade-in" x-data="{
     activeTab: 0,
     materialsCount: {{ $materials->count() }},
-    answers: {{ json_encode($answers) }},
+    materialQuestions: {{ json_encode($materials->map(fn($m) => $m->questions->pluck('id')->values())->values()) }},
+    answers: {{ json_encode((object) $answers) }},
     savingStatus: 'idle', // 'idle', 'saving', 'saved', 'error'
     statuses: {}, // Local status per question: { [questionId]: 'saving' | 'saved' | 'error' | 'idle' }
     saveTimeouts: {}, // Local timeouts per question to support independent debouncing
     
+    isMaterialComplete(idx) {
+        const qIds = this.materialQuestions[idx] || [];
+        if (qIds.length === 0) return false;
+        return qIds.every(qId => {
+            const val = this.answers ? this.answers[qId] : '';
+            return val !== undefined && val !== null && String(val).trim().length > 0;
+        });
+    },
+
     saveAnswer(questionId, text) {
-        this.answers[questionId] = text;
+        this.answers = { ...this.answers, [questionId]: text };
         this.savingStatus = 'saving';
         
         if (!this.statuses) this.statuses = {};
@@ -75,6 +85,13 @@
         if (this.statuses && this.statuses[questionId] === 'saving') {
             this.saveAnswerImmediately(questionId, text);
         }
+    },
+
+    goToTab(index) {
+        this.activeTab = index;
+        this.$nextTick(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
 }">
     <!-- Header with Dynamic Status -->
@@ -138,12 +155,23 @@
         <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin">
             @foreach($materials as $idx => $material)
                 <button type="button" 
-                        @click="activeTab = {{ $idx }}"
-                        class="px-5 py-2.5 rounded-full text-xs font-bold border transition-all duration-200 flex-shrink-0 active:scale-95"
+                        @click="goToTab({{ $idx }})"
+                        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold border transition-all duration-200 flex-shrink-0 active:scale-95"
                         :class="activeTab === {{ $idx }} 
                             ? 'bg-blue-600 border-blue-600 text-white shadow-sm' 
-                            : 'bg-white border-slate-200 text-slate-500 hover:text-slate-700 hover:bg-slate-50'">
-                    {{ $material->title }}
+                            : (isMaterialComplete({{ $idx }}) 
+                                ? 'bg-emerald-50/70 border-emerald-200 text-slate-700 hover:bg-emerald-50' 
+                                : 'bg-white border-slate-200 text-slate-500 hover:text-slate-700 hover:bg-slate-50')">
+                    <span class="w-4 h-4 rounded-full inline-flex items-center justify-center flex-shrink-0 transition-colors duration-200"
+                          :title="isMaterialComplete({{ $idx }}) ? 'Seluruh pertanyaan pada materi ini sudah dijawab' : 'Belum seluruh pertanyaan dijawab'"
+                          :class="isMaterialComplete({{ $idx }})
+                              ? (activeTab === {{ $idx }} ? 'bg-emerald-400 text-white shadow-sm' : 'bg-emerald-500 text-white')
+                              : (activeTab === {{ $idx }} ? 'bg-white/20 text-white/40' : 'bg-slate-100 text-slate-300')">
+                        <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </span>
+                    <span>{{ $material->title }}</span>
                 </button>
             @endforeach
         </div>
@@ -153,7 +181,7 @@
             <div class="space-y-6" x-show="activeTab === {{ $idx }}" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-2">
                 
                 {{-- Focus & Description Card --}}
-                <div class="card p-6 bg-white border border-slate-200/80">
+                <div class="card p-4 sm:p-6 bg-white border border-slate-200/80">
                     <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4 mb-4">
                         <h4 class="font-extrabold text-slate-800 text-lg">{{ $material->title }}</h4>
                         @if($material->values)
@@ -168,12 +196,12 @@
                 </div>
 
                 {{-- SFBC Worksheets --}}
-                <div class="card p-6 bg-white border border-slate-200/80 space-y-6">
+                <div class="card p-4 sm:p-6 bg-white border border-slate-200/80 space-y-6">
                     <h4 class="font-extrabold text-slate-800 text-base border-b border-slate-100 pb-3">Lembar Eksplorasi Solusi (Solution-Focused Brief Counseling)</h4>
                     
                     @php
                         $groupedQuestions = $material->questions->sortBy('order')->groupBy('category');
-                        $categoriesOrder = ['W', 'D', 'E', 'P'];
+                        $categoriesOrder = ['W', 'D', 'S', 'E', 'P'];
                         $hasQuestions = $material->questions->isNotEmpty();
                     @endphp
 
@@ -191,31 +219,38 @@
                                             $labelClass = 'text-blue-700';
                                             $focusClass = 'focus:border-blue-500 focus:ring-blue-500/20';
                                             $stepBadge = '1';
-                                            $labelText = 'Goal Setting & Miracle Question (Harapan & Masa Depan Terbaik)';
+                                            $labelText = 'Tahap 1: Tujuan';
                                         } elseif ($cat === 'D') {
                                             $bgClass = 'bg-emerald-50/40 border-emerald-100/70';
                                             $badgeClass = 'bg-emerald-600 text-white';
                                             $labelClass = 'text-emerald-700';
                                             $focusClass = 'focus:border-emerald-500 focus:ring-emerald-500/20';
                                             $stepBadge = '2';
-                                            $labelText = 'Exception & Strengths (Kekuatan Diri & Keberhasilan)';
+                                            $labelText = 'Tahap 2: Penemuan Exception';
+                                        } elseif ($cat === 'S') {
+                                            $bgClass = 'bg-indigo-50/40 border-indigo-100/70';
+                                            $badgeClass = 'bg-indigo-600 text-white';
+                                            $labelClass = 'text-indigo-700';
+                                            $focusClass = 'focus:border-indigo-500 focus:ring-indigo-500/20';
+                                            $stepBadge = '3';
+                                            $labelText = 'Tahap 3: Pelaksanaan Solusi';
                                         } elseif ($cat === 'E') {
                                             $bgClass = 'bg-purple-50/40 border-purple-100/70';
                                             $badgeClass = 'bg-purple-600 text-white';
                                             $labelClass = 'text-purple-700';
                                             $focusClass = 'focus:border-purple-500 focus:ring-purple-500/20';
-                                            $stepBadge = '3';
-                                            $labelText = 'Scaling Question (Skala Kemajuan & Keyakinan Diri)';
+                                            $stepBadge = '4';
+                                            $labelText = 'Tahap 4: Scaling';
                                         } else { // P
                                             $bgClass = 'bg-orange-50/40 border-orange-100/70';
                                             $badgeClass = 'bg-orange-600 text-white';
                                             $labelClass = 'text-orange-700';
                                             $focusClass = 'focus:border-orange-500 focus:ring-orange-500/20';
-                                            $stepBadge = '4';
-                                            $labelText = 'Action Plan (Langkah Kecil Menuju Solusi)';
+                                            $stepBadge = '5';
+                                            $labelText = 'Tahap 5: Tugas';
                                         }
                                     @endphp
-                                    <div class="p-6 border rounded-3xl space-y-5 {{ $bgClass }} transition-all duration-200">
+                                    <div class="p-4 sm:p-6 border rounded-2xl sm:rounded-3xl space-y-5 {{ $bgClass }} transition-all duration-200">
                                         {{-- Category Header --}}
                                         <div class="flex items-center gap-2 border-b border-current/10 pb-3">
                                             <span class="w-6 h-6 rounded font-extrabold text-xs flex items-center justify-center flex-shrink-0 {{ $badgeClass }}">
@@ -245,7 +280,7 @@
                                                               placeholder="Tuliskan refleksi dirimu di sini... (Tersimpan otomatis setelah 5 detik tidak mengetik atau ketika Anda berpindah kolom)">{{ $answers[$q->id] ?? '' }}</textarea>
                                                     
                                                     {{-- Local saving status --}}
-                                                    <div class="flex items-center justify-between min-h-[22px] mt-2 px-2 py-1 rounded-xl bg-slate-50/50 border border-slate-100/70 text-[11px] font-medium text-slate-400 select-none transition-all duration-200">
+                                                    <div class="flex flex-wrap items-center justify-between gap-1 min-h-[22px] mt-2 px-2 py-1 rounded-xl bg-slate-50/50 border border-slate-100/70 text-[11px] font-medium text-slate-400 select-none transition-all duration-200">
                                                         <div class="flex items-center gap-1.5">
                                                             <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/></svg>
                                                             <span>Auto-save aktif</span>
@@ -283,15 +318,15 @@
                 </div>
 
                 {{-- Next Tab Navigator --}}
-                <div class="flex justify-between items-center pt-4">
+                <div class="flex flex-wrap justify-between items-center gap-3 pt-4">
                     <button type="button" 
-                            @click="activeTab = Math.max(0, activeTab - 1)" 
+                            @click="goToTab(Math.max(0, activeTab - 1))" 
                             :disabled="activeTab === 0"
                             class="btn-secondary btn-sm px-4 py-2 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed">
                         Materi Sebelumnya
                     </button>
                     <button type="button" 
-                            @click="if(activeTab < materialsCount - 1) { activeTab++ } else { window.location.href = '{{ route('konseli.dashboard') }}' }"
+                            @click="if(activeTab < materialsCount - 1) { goToTab(activeTab + 1) } else { window.location.href = '{{ route('konseli.dashboard') }}' }"
                             class="btn-primary btn-sm bg-gradient-to-r from-blue-500 to-blue-600 px-5 py-2">
                         <span x-text="activeTab === materialsCount - 1 ? 'Selesai & Beranda' : 'Materi Berikutnya'"></span>
                     </button>

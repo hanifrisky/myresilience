@@ -29,22 +29,22 @@
          class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start relative">
         
         {{-- Kiri (2 Kolom): Builder --}}
-        <div class="lg:col-span-2 space-y-6">
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 min-h-[400px]">
-                <div class="flex items-center justify-between mb-4">
+        <div class="lg:col-span-2 space-y-6 order-2 lg:order-1">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-6 min-h-[400px]">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                     <h3 class="text-lg font-bold text-slate-800">Konten Lesson</h3>
-                    <span class="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full" x-text="sections.length + ' Section'"></span>
+                    <span class="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full whitespace-nowrap" x-text="sections.length + ' Section'"></span>
                 </div>
 
                 {{-- Empty State --}}
-                <div x-show="sections.length === 0" class="text-center py-12 border-2 border-dashed border-slate-200 rounded-xl"
+                <div x-show="sections.length === 0" class="text-center py-12 px-4 border-2 border-dashed border-slate-200 rounded-xl"
                      :class="{'bg-blue-50 border-blue-300': dragOverIndex === 'empty'}">
                     <div class="w-16 h-16 bg-slate-50 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-3"
                          :class="{'text-blue-500 bg-blue-100': dragOverIndex === 'empty'}">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
                     </div>
                     <p class="text-slate-500 font-medium">Belum ada konten.</p>
-                    <p class="text-sm text-slate-400 mt-1">Seret jenis konten dari panel kanan ke sini atau klik.</p>
+                    <p class="text-sm text-slate-400 mt-1">Pilih atau seret jenis konten untuk mulai menyusun materi.</p>
                 </div>
 
                 {{-- Sections List --}}
@@ -54,14 +54,14 @@
                             {{-- Drop indicator top --}}
                             <div x-show="dragOverIndex === index && dragPosition === 'top'" class="h-1 bg-blue-500 rounded-full absolute -top-2 left-0 right-0 z-10 pointer-events-none"></div>
 
-                            <div class="relative border border-slate-200 rounded-xl bg-slate-50 p-4 group transition-opacity" 
+                            <div class="relative border border-slate-200 rounded-xl bg-slate-50 p-3.5 sm:p-4 group transition-opacity" 
                                  draggable="true" 
                                  @dragstart="dragStart(index, $event)" 
                                  @dragend="dragEnd($event)"
                                  @dragover.prevent="dragOver(index, $event)" 
                                  @drop="drop(index)">
                                 
-                                <div class="flex items-center justify-between mb-3">
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                                     <div class="flex items-center gap-2">
                                         <span class="text-xs font-bold px-2 py-1 bg-slate-200 text-slate-600 rounded" x-text="getTypeLabel(section.type)"></span>
                                         <span class="text-sm text-slate-400 font-medium" x-text="'Bagian ' + (index + 1)"></span>
@@ -102,7 +102,7 @@
                                 {{-- Image, PDF, Video Upload --}}
                                 <template x-if="['image', 'pdf', 'video'].includes(section.type)">
                                     <div x-data="fileUploader(section.type, section.file_path)" 
-                                         class="relative border-2 border-dashed rounded-2xl p-6 text-center transition-colors"
+                                         class="relative border-2 border-dashed rounded-2xl p-4 sm:p-6 text-center transition-colors"
                                          :class="isDragging ? 'border-blue-500 bg-blue-50' : 'border-slate-300 bg-white hover:bg-slate-50'"
                                          @dragover.prevent="isDragging = true"
                                          @dragleave.prevent="isDragging = false"
@@ -198,8 +198,8 @@
         </div>
 
         {{-- Kanan (1 Kolom): Metadata & Tambah Section --}}
-        <div class="lg:col-span-1 space-y-6 lg:sticky lg:top-24">
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+        <div class="lg:col-span-1 space-y-6 lg:sticky lg:top-24 order-1 lg:order-2">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-6">
                 <h3 class="text-lg font-bold text-slate-800 mb-4">Informasi Utama</h3>
                 <div class="space-y-4">
                     <div>
@@ -213,11 +213,11 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-6">
                 <h3 class="text-sm font-bold text-slate-800 mb-3">Tambah Konten</h3>
-                <p class="text-xs text-slate-500 mb-4">Klik untuk menambahkan ke bawah, atau seret (drag) ke posisi yang diinginkan di sebelah kiri.</p>
+                <p class="text-xs text-slate-500 mb-4">Klik untuk menambahkan ke bawah, atau seret (drag) ke posisi yang diinginkan.</p>
                 
-                <div class="grid grid-cols-2 gap-2">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2">
                     <button type="button" @click="addSection('text')" draggable="true" @dragstart="dragStartNew('text', $event)" @dragend="dragEndNew($event)"
                             class="flex flex-col items-center justify-center p-3 border border-slate-200 rounded-xl hover:bg-blue-50 hover:border-blue-200 cursor-grab active:cursor-grabbing transition-colors group relative">
                         <svg class="w-6 h-6 text-slate-400 group-hover:text-blue-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/></svg>

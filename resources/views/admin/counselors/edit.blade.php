@@ -6,8 +6,8 @@
 @section('content')
 @php $profile = $counselor->counselorProfile; @endphp
 <div class="max-w-xl mx-auto space-y-6 animate-fade-in">
-    <div class="card p-6">
-        <div class="flex items-center justify-between mb-6">
+    <div class="card p-4 sm:p-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
             <h3 class="font-bold text-slate-800 text-lg">Edit Profil Konselor</h3>
             <a href="{{ route('admin.counselors.index') }}" class="text-sm text-slate-500 hover:text-blue-600 transition-colors">Kembali ke Daftar</a>
         </div>
@@ -50,8 +50,8 @@
                 </div>
 
                 <!-- Passwords -->
-                <div class="grid grid-cols-2 gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                    <div class="col-span-2 mb-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div class="sm:col-span-2 mb-2">
                         <p class="text-xs font-semibold text-slate-500">Ubah Kata Sandi (Kosongkan jika tidak ingin diubah)</p>
                     </div>
                     <div>
@@ -142,7 +142,7 @@
                     <label for="photo" class="form-label">Foto Profil</label>
                     @if($profile && $profile->photo_path)
                         <div class="mb-3 flex items-center gap-3">
-                            <div class="w-12 h-12 rounded-xl border border-slate-200 overflow-hidden">
+                            <div class="w-12 h-12 rounded-xl border border-slate-200 overflow-hidden flex-shrink-0">
                                 <img src="{{ asset('storage/' . $profile->photo_path) }}" alt="Foto lama" class="w-full h-full object-cover">
                             </div>
                             <span class="text-xs text-slate-400">Foto saat ini terpasang. Unggah file baru untuk menggantinya.</span>
@@ -174,7 +174,7 @@
             </div>
 
             <!-- Submit Button -->
-            <div class="pt-4 border-t border-slate-100 flex items-center gap-3 justify-end">
+            <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3 justify-end">
                 <a href="{{ route('admin.counselors.index') }}" class="btn-secondary">Batal</a>
                 <button type="submit" class="btn-primary">Perbarui Profil</button>
             </div>

@@ -10,9 +10,6 @@ class CounselorSeeder extends Seeder
 {
     public function run(): void
     {
-        // Delete existing counselors to start fresh
-        User::where('role', 'konselor')->delete();
-
         $counselors = [
             [
                 'name' => 'Nur Mega Aris Saputra, S.Pd., M.Pd',
@@ -55,23 +52,28 @@ class CounselorSeeder extends Seeder
                 'whatsapp_number' => '081358991943',
                 'motto' => 'Aku Berpikir Maka Aku Hidup',
                 'description' => "Mahasiswa S3 Bimbingan dan Konseling Universitas Negeri Malang\nS1 Bimbingan dan Konseling Islam-Universitas Islam Negeri Jember (2018-2022)\nS2 Bimbingan dan Konseling-Universitas Negeri Malang (2023-2024)\nS3 Bimbingan dan Konseling-Universitas Negeri Malang (2024-Sekarang)",
-            ]
+            ],
         ];
 
         foreach ($counselors as $data) {
-            $user = User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => Hash::make('password'),
-                'role' => 'konselor',
-            ]);
+            $user = User::updateOrCreate(
+                ['email' => $data['email']],
+                [
+                    'name' => $data['name'],
+                    'password' => Hash::make('password'),
+                    'role' => 'konselor',
+                ]
+            );
 
-            $user->counselorProfile()->create([
-                'description' => $data['description'],
-                'motto' => $data['motto'],
-                'photo_path' => null,
-                'whatsapp_number' => $data['whatsapp_number'],
-            ]);
+            $user->counselorProfile()->updateOrCreate(
+                ['user_id' => $user->id],
+                [
+                    'description' => $data['description'],
+                    'motto' => $data['motto'],
+                    'photo_path' => null,
+                    'whatsapp_number' => $data['whatsapp_number'],
+                ]
+            );
         }
     }
 }

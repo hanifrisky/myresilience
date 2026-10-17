@@ -12,15 +12,15 @@
 
     {{-- Konseli Table/List --}}
     <div class="table-container bg-white">
-        <div class="p-6 border-b border-slate-100 flex items-center justify-between">
+        <div class="p-4 sm:p-6 border-b border-slate-100 flex flex-wrap items-center justify-between gap-2">
             <h4 class="font-bold text-slate-800 text-base">Konseli Pendampingan Anda</h4>
-            <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-lg font-bold border border-blue-100">
+            <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-lg font-bold border border-blue-100 whitespace-nowrap">
                 {{ $konseliList->total() }} Orang Terdaftar
             </span>
         </div>
 
         {{-- Filter & Search Bar --}}
-        <div class="px-6 py-4 bg-slate-50/50 border-b border-slate-100">
+        <div class="px-4 sm:px-6 py-4 bg-slate-50/50 border-b border-slate-100">
             <form action="{{ route('konselor.dashboard') }}" method="GET" class="flex flex-col sm:flex-row items-center justify-end gap-3 w-full">
                 @if(request('per_page'))
                     <input type="hidden" name="per_page" value="{{ request('per_page') }}">
@@ -60,14 +60,14 @@
             </div>
         @else
             <div class="overflow-x-auto">
-                <table class="w-full">
+                <table class="w-full min-w-[680px]">
                     <thead>
                         <tr>
                             <th>Konseli</th>
-                            <th class="text-center">Pre-Test Resiliensi</th>
-                            <th class="text-center">Post-Test Resiliensi</th>
-                            <th class="text-center">Sesi Self-Help</th>
-                            <th class="w-64 text-center">Tindakan Peninjauan</th>
+                            <th class="text-center whitespace-nowrap">Pre-Test Resiliensi</th>
+                            <th class="text-center whitespace-nowrap">Post-Test Resiliensi</th>
+                            <th class="text-center whitespace-nowrap">Sesi Self-Help</th>
+                            <th class="w-64 text-center whitespace-nowrap">Tindakan Peninjauan</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100">
@@ -77,37 +77,37 @@
                                     <h5 class="font-extrabold text-slate-800 text-sm">{{ $konseli->name }}</h5>
                                     <p class="text-xs text-slate-400 mt-0.5">{{ $konseli->email }}</p>
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center whitespace-nowrap">
                                     @if($konseli->pre_test)
-                                        <span class="text-xs font-bold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-0.5 rounded-lg">
+                                        <span class="text-xs font-bold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-0.5 rounded-lg whitespace-nowrap">
                                             {{ $konseli->pre_test->total_score }} Poin
                                         </span>
                                     @else
-                                        <span class="text-xs text-slate-400 italic">Belum mengisi</span>
+                                        <span class="text-xs text-slate-400 italic whitespace-nowrap">Belum mengisi</span>
                                     @endif
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center whitespace-nowrap">
                                     @if($konseli->post_test)
-                                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-lg">
+                                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-lg whitespace-nowrap">
                                             {{ $konseli->post_test->total_score }} Poin
                                         </span>
                                     @else
-                                        <span class="text-xs text-slate-400 italic">Belum mengisi</span>
+                                        <span class="text-xs text-slate-400 italic whitespace-nowrap">Belum mengisi</span>
                                     @endif
                                 </td>
-                                <td class="text-center">
-                                    <span class="text-xs font-extrabold text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-lg">
+                                <td class="text-center whitespace-nowrap">
+                                    <span class="text-xs font-extrabold text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-lg whitespace-nowrap">
                                         {{ $konseli->self_help_count }} Jawaban
                                     </span>
                                 </td>
-                                <td>
+                                <td class="whitespace-nowrap">
                                     <div class="flex flex-col gap-1.5 justify-center">
-                                        <a href="{{ route('konselor.konseli.wellbeing', $konseli) }}" class="btn-primary btn-sm text-xs py-1.5 text-center flex items-center justify-center gap-1">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2"/></svg>
+                                        <a href="{{ route('konselor.konseli.wellbeing', $konseli) }}" class="btn-primary btn-sm text-xs py-1.5 text-center flex items-center justify-center gap-1 whitespace-nowrap">
+                                            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2"/></svg>
                                             Hasil Tes Resiliensi
                                         </a>
-                                        <a href="{{ route('konselor.konseli.self-help', $konseli) }}" class="btn-secondary btn-sm text-xs py-1.5 text-center flex items-center justify-center gap-1">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                                        <a href="{{ route('konselor.konseli.self-help', $konseli) }}" class="btn-secondary btn-sm text-xs py-1.5 text-center flex items-center justify-center gap-1 whitespace-nowrap">
+                                            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                                             Hasil Self-Help
                                         </a>
                                     </div>
@@ -119,8 +119,8 @@
             </div>
 
             {{-- Pagination Links --}}
-            <div class="p-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div class="flex flex-col sm:flex-row sm:items-center gap-4 text-xs font-bold text-slate-400">
+            <div class="p-4 sm:p-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-xs font-bold text-slate-400">
                     <div>
                         Menampilkan {{ $konseliList->firstItem() ?? 0 }} - {{ $konseliList->lastItem() ?? 0 }} dari {{ $konseliList->total() }} konseli
                     </div>
@@ -143,7 +143,7 @@
                         </select>
                     </form>
                 </div>
-                <div class="w-full sm:w-auto overflow-x-auto flex justify-end">
+                <div class="w-full sm:w-auto overflow-x-auto flex justify-center sm:justify-end">
                     {{ $konseliList->links() }}
                 </div>
             </div>

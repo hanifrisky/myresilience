@@ -3,8 +3,8 @@
 @section('title', 'Profil Saya')
 
 @section('content')
-<div class="max-w-xl mx-auto space-y-6 animate-fade-in pb-16">
-    <div class="card p-6 bg-white border border-slate-200/80">
+<div class="max-w-xl mx-auto space-y-6 animate-fade-in pb-8">
+    <div class="card p-4 sm:p-6 bg-white border border-slate-200/80">
         <h3 class="font-extrabold text-slate-800 text-lg mb-6">Pengaturan Akun & Profil</h3>
 
         <form action="{{ route('konseli.profile.update') }}" method="POST" class="space-y-6">
@@ -42,8 +42,8 @@
             </div>
 
             <!-- Password change block -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-slate-50 border border-slate-100 rounded-3xl">
-                <div class="col-span-1 md:col-span-2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-slate-50 border border-slate-100 rounded-2xl sm:rounded-3xl">
+                <div class="col-span-1 sm:col-span-2">
                     <h4 class="text-xs font-extrabold text-slate-500">Ubah Kata Sandi (Kosongkan jika tidak diubah)</h4>
                 </div>
                 <div>
@@ -99,7 +99,7 @@
 
             <!-- Submit Button -->
             <div class="pt-4 border-t border-slate-100 flex justify-end">
-                <button type="submit" class="btn-primary bg-gradient-to-r from-blue-500 to-blue-600 px-6">
+                <button type="submit" class="btn-primary w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-600 px-6">
                     Simpan Perubahan
                 </button>
             </div>

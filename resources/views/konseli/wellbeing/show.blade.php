@@ -203,11 +203,11 @@
         <div class="lg:col-span-1 card p-5 bg-white border border-slate-200/80">
             <h4 class="font-bold text-slate-800 text-sm mb-4">Navigasi Soal</h4>
             
-            <div class="grid grid-cols-5 gap-2.5">
+            <div class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-5 gap-2 sm:gap-2.5">
                 <template x-for="(q, idx) in questions" :key="q.id">
                     <button type="button" 
                             @click="handleGridClick(q, idx)"
-                            class="relative w-10 h-10 rounded-xl font-bold text-xs flex items-center justify-center border transition-all duration-200 active:scale-95 focus:outline-none"
+                            class="relative w-full aspect-square max-w-[44px] mx-auto rounded-xl font-bold text-xs flex items-center justify-center border transition-all duration-200 active:scale-95 focus:outline-none"
                             :class="{
                                 'ring-2 ring-blue-600 ring-offset-2 border-blue-500 z-10': currentIndex === idx,
                                 'bg-blue-50 border-blue-300 text-blue-700 font-extrabold': questionStatuses[q.id] === 'saving',

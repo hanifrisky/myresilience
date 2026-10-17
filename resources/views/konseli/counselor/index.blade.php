@@ -39,7 +39,7 @@
                                     {{ strtoupper(substr($counselor->name, 0, 2)) }}
                                 @endif
                             </div>
-                            <div class="min-w-0">
+                            <div class="min-w-0 {{ $isSelected ? 'pr-20' : '' }}">
                                 <h4 class="font-extrabold text-slate-800 text-base truncate leading-snug">{{ $counselor->name }}</h4>
                                 <p class="text-xs text-slate-400 truncate mt-0.5">{{ $counselor->email }}</p>
                             </div>

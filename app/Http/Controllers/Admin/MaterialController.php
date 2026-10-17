@@ -21,7 +21,7 @@ class MaterialController extends Controller
             'values' => 'nullable|string|max:500',
             'description' => 'nullable|string',
             'questions' => 'nullable|array',
-            'questions.*.category' => 'required|in:W,D,E,P',
+            'questions.*.category' => 'required|in:W,D,S,E,P',
             'questions.*.text' => 'required|string',
         ]);
 
@@ -60,7 +60,7 @@ class MaterialController extends Controller
             'description' => 'nullable|string',
             'questions' => 'nullable|array',
             'questions.*.id' => 'nullable|exists:material_questions,id',
-            'questions.*.category' => 'required|in:W,D,E,P',
+            'questions.*.category' => 'required|in:W,D,S,E,P',
             'questions.*.text' => 'required|string',
         ]);
 

@@ -4,10 +4,10 @@
 @section('page-title', $tribe->name)
 
 @section('header-actions')
-<div class="flex items-center gap-2">
-    <a href="{{ route('admin.tribes.index') }}" class="btn-secondary">Kembali</a>
-    <a href="{{ route('admin.tribes.materials.create', $tribe) }}" class="btn-primary">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+<div class="flex flex-wrap items-center justify-end gap-2">
+    <a href="{{ route('admin.tribes.index') }}" class="btn-secondary px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm">Kembali</a>
+    <a href="{{ route('admin.tribes.materials.create', $tribe) }}" class="btn-primary px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm">
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
         Tambah Materi Baru
     </a>
 </div>
@@ -15,7 +15,7 @@
 
 @section('content')
 <div class="space-y-6 animate-fade-in">
-    <div class="card p-6">
+    <div class="card p-4 sm:p-6">
         <div class="border-b border-slate-100 pb-4 mb-6">
             <h3 class="font-bold text-slate-800 text-lg">Materi Self-Help — {{ $tribe->name }}</h3>
             <p class="text-sm text-slate-500 mt-1">Daftar materi pembelajaran mandiri berfokus solusi (SFBC) untuk meningkatkan resiliensi konseli.</p>
@@ -31,19 +31,19 @@
         @else
             <div class="space-y-6">
                 @foreach($tribe->materials->sortBy('order') as $material)
-                    <div class="border border-slate-200/80 rounded-3xl p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300">
+                    <div class="border border-slate-200/80 rounded-3xl p-4 sm:p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300">
                         <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 border-b border-slate-100 pb-4 mb-4">
                             <div>
-                                <h4 class="font-extrabold text-slate-800 text-lg">{{ $material->title }}</h4>
+                                <h4 class="font-extrabold text-slate-800 text-lg break-words">{{ $material->title }}</h4>
                                 @if($material->values)
-                                    <div class="flex items-center gap-1.5 mt-2">
-                                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-100">
+                                    <div class="flex flex-wrap items-center gap-1.5 mt-2">
+                                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-100 break-words">
                                             Fokus Resiliensi: {{ $material->values }}
                                         </span>
                                     </div>
                                 @endif
                             </div>
-                            <div class="flex items-center gap-2">
+                            <div class="flex flex-wrap items-center gap-2 flex-shrink-0">
                                 <a href="{{ route('admin.tribes.materials.edit', [$tribe, $material]) }}" class="btn-secondary btn-sm">
                                     Edit Materi & Soal
                                 </a>
@@ -61,7 +61,7 @@
                             {{-- Description --}}
                             <div class="lg:col-span-1">
                                 <h5 class="font-bold text-slate-700 text-sm mb-2">Deskripsi Materi</h5>
-                                <p class="text-sm text-slate-500 leading-relaxed">
+                                <p class="text-sm text-slate-500 leading-relaxed break-words">
                                     {{ $material->description ?: 'Tidak ada deskripsi.' }}
                                 </p>
                             </div>
@@ -74,10 +74,11 @@
                                 @else
                                     @php
                                         $sfbcMap = [
-                                            'W' => ['badge' => '1', 'label' => 'Goal Setting & Miracle Question (Harapan & Masa Depan Terbaik)'],
-                                            'D' => ['badge' => '2', 'label' => 'Exception & Strengths (Kekuatan Diri & Keberhasilan)'],
-                                            'E' => ['badge' => '3', 'label' => 'Scaling Question (Skala Kemajuan & Keyakinan Diri)'],
-                                            'P' => ['badge' => '4', 'label' => 'Action Plan (Langkah Kecil Menuju Solusi)'],
+                                            'W' => ['badge' => '1', 'label' => 'Tahap 1: Tujuan'],
+                                            'D' => ['badge' => '2', 'label' => 'Tahap 2: Penemuan Exception'],
+                                            'S' => ['badge' => '3', 'label' => 'Tahap 3: Pelaksanaan Solusi'],
+                                            'E' => ['badge' => '4', 'label' => 'Tahap 4: Scaling'],
+                                            'P' => ['badge' => '5', 'label' => 'Tahap 5: Tugas'],
                                         ];
                                     @endphp
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -93,7 +94,7 @@
                                                     <span class="text-xs font-bold text-slate-400">
                                                         {{ $stage['label'] }}
                                                     </span>
-                                                    <p class="text-xs font-medium text-slate-600 mt-0.5 leading-relaxed">{{ $q->text }}</p>
+                                                    <p class="text-xs font-medium text-slate-600 mt-0.5 leading-relaxed break-words">{{ $q->text }}</p>
                                                 </div>
                                             </div>
                                         @endforeach

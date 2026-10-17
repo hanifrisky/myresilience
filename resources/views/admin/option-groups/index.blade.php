@@ -12,7 +12,7 @@
 
 @section('content')
 <div class="space-y-6 animate-fade-in">
-    <div class="card p-6">
+    <div class="card p-4 sm:p-6">
         <p class="text-sm text-slate-500 mb-6">Grup pilihan jawaban digunakan untuk mengelompokkan opsi jawaban instrumen resiliensi beserta bobot skornya masing-masing.</p>
 
         @if($groups->isEmpty())
@@ -23,28 +23,28 @@
                 <a href="{{ route('admin.option-groups.create') }}" class="btn-primary">Buat Grup Baru</a>
             </div>
         @else
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                 @foreach($groups as $group)
-                    <div class="border border-slate-200/80 rounded-2xl p-5 hover:border-blue-400/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                    <div class="border border-slate-200/80 rounded-2xl p-4 sm:p-5 hover:border-blue-400/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                         <div>
-                            <div class="flex items-center justify-between mb-3">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                                 <h4 class="font-bold text-slate-800 text-lg">{{ $group->name }}</h4>
-                                <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-lg font-semibold border border-blue-100">
+                                <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-lg font-semibold border border-blue-100 whitespace-nowrap">
                                     {{ $group->items->count() }} Pilihan
                                 </span>
                             </div>
                             
                             <div class="mt-4 space-y-2">
                                 @foreach($group->items->sortBy('order') as $item)
-                                    <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl text-sm border border-slate-100">
-                                        <span class="font-medium text-slate-700">{{ $item->label }}</span>
-                                        <span class="font-bold text-blue-600 bg-white border border-slate-200 px-2 py-0.5 rounded-lg text-xs">Skor: {{ $item->score }}</span>
+                                    <div class="flex items-center justify-between gap-2 p-2.5 bg-slate-50 rounded-xl text-sm border border-slate-100">
+                                        <span class="font-medium text-slate-700 break-words min-w-0">{{ $item->label }}</span>
+                                        <span class="font-bold text-blue-600 bg-white border border-slate-200 px-2 py-0.5 rounded-lg text-xs whitespace-nowrap flex-shrink-0">Skor: {{ $item->score }}</span>
                                     </div>
                                 @endforeach
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-2 mt-6 pt-4 border-t border-slate-100">
+                        <div class="flex flex-wrap items-center gap-2 mt-6 pt-4 border-t border-slate-100">
                             <a href="{{ route('admin.option-groups.edit', $group) }}" class="btn-secondary btn-sm flex-1">
                                 Edit
                             </a>
