@@ -726,7 +726,7 @@
             <header class="mr-nav">
                 {{-- Brand on the Royal Blue side --}}
                 <a href="/" class="mr-nav-brand">
-                    <img src="{{ asset('image/logo-mark.png') }}" alt="MY RESILIENCE" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover border-2 border-cyan-300/60 shadow-lg flex-shrink-0">
+                    <img src="{{ asset_versioned('image/logo-mark.png') }}" alt="MY RESILIENCE" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover border-2 border-cyan-300/60 shadow-lg flex-shrink-0">
                     <div class="min-w-0">
                         <span class="text-sm sm:text-lg font-extrabold tracking-wider text-white block leading-none truncate">MY RESILIENCE</span>
                         <span class="text-[9px] sm:text-[10px] font-bold text-cyan-300 tracking-widest uppercase block mt-0.5 truncate">KEMENDIKTI SAINTEK • UM</span>
@@ -791,7 +791,7 @@
                     {{-- Institutional Logos Pill (KEMENDIKTI SAINTEK; Saintek berdampak, UM) --}}
                     <div class="mr-partner-pill">
                         <div class="flex items-center gap-2.5">
-                            <img src="{{ asset('image/logo/Diktisaintek.png') }}" alt="KEMENDIKTI SAINTEK - Saintek Berdampak" class="h-7 sm:h-9 object-contain flex-shrink-0">
+                            <img src="{{ asset_versioned('image/logo/Diktisaintek.png') }}" alt="KEMENDIKTI SAINTEK - Saintek Berdampak" class="h-7 sm:h-9 object-contain flex-shrink-0">
                             <div class="text-left">
                                 <p class="text-[10px] font-extrabold text-slate-900 leading-tight">KEMENDIKTI SAINTEK</p>
                                 <p class="text-[9px] font-bold text-cyan-600 leading-tight">Saintek Berdampak</p>
@@ -799,7 +799,7 @@
                         </div>
                         <div class="hidden sm:block h-6 w-px bg-slate-200"></div>
                         <div class="flex items-center gap-2.5">
-                            <img src="{{ asset('image/logo/logo-um.webp') }}" alt="Universitas Negeri Malang (UM)" class="h-7 sm:h-9 object-contain flex-shrink-0">
+                            <img src="{{ asset_versioned('image/logo/logo-um.webp') }}" alt="Universitas Negeri Malang (UM)" class="h-7 sm:h-9 object-contain flex-shrink-0">
                             <div class="text-left">
                                 <p class="text-[10px] font-extrabold text-slate-900 leading-tight">UNIVERSITAS NEGERI MALANG</p>
                                 <p class="text-[9px] font-bold text-blue-700 leading-tight">FIP • Bimbingan & Konseling</p>
@@ -879,7 +879,7 @@
 
                         {{-- 3D Character Illustration inside Portal --}}
                         <div class="mr-portal-avatar">
-                            <img src="{{ asset('image/hero-counseling.jpg') }}" alt="Remaja Tangguh MY RESILIENCE">
+                            <img src="{{ asset_versioned('image/hero-counseling.jpg') }}" alt="Remaja Tangguh MY RESILIENCE">
                         </div>
 
                         {{-- Orbiting 3D Icon Bubbles positioned strictly on the outer perimeter so they never cover the character --}}
@@ -1140,7 +1140,7 @@
                     {{-- Left: Brand & Institution Info --}}
                     <div class="lg:col-span-6 space-y-4">
                         <div class="flex items-center gap-3">
-                            <img src="{{ asset('image/logo-mark.png') }}" alt="MY RESILIENCE" class="w-11 h-11 rounded-xl object-cover border-2 border-blue-200 shadow-sm flex-shrink-0">
+                            <img src="{{ asset_versioned('image/logo-mark.png') }}" alt="MY RESILIENCE" class="w-11 h-11 rounded-xl object-cover border-2 border-blue-200 shadow-sm flex-shrink-0">
                             <div>
                                 <span class="text-lg font-extrabold tracking-wider text-blue-900 block leading-none">MY RESILIENCE</span>
                                 <span class="text-[10px] font-bold text-cyan-600 tracking-widest uppercase block mt-1">KEMENDIKTI SAINTEK • UNIVERSITAS NEGERI MALANG</span>

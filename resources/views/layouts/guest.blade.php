@@ -7,7 +7,7 @@
 
         <title>{{ config('app.name', 'MY RESILIENCE') }} - Masuk / Daftar</title>
 
-        <link rel="icon" href="{{ asset('image/logo-mark.png') }}" type="image/png">
+        <link rel="icon" href="{{ asset_versioned('image/logo-mark.png') }}" type="image/png">
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,7 +81,7 @@
             <div class="text-center">
                 <a href="/" class="inline-flex flex-col items-center gap-1.5 sm:gap-2 mb-4 sm:mb-5 group">
                     <div class="mr-auth-cyan-ring group-hover:scale-105 transition-transform duration-300">
-                        <img src="{{ asset('image/logo-mark.png') }}" alt="MY RESILIENCE" class="w-full h-full rounded-full object-cover">
+                        <img src="{{ asset_versioned('image/logo-mark.png') }}" alt="MY RESILIENCE" class="w-full h-full rounded-full object-cover">
                     </div>
                     <div>
                         <span class="text-lg sm:text-xl font-extrabold text-white tracking-tight block drop-shadow-sm">MY RESILIENCE</span>

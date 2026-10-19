@@ -17,7 +17,7 @@
         {{-- Brand Logo --}}
         <div class="flex justify-center mb-6">
             <a href="/" class="flex flex-col items-center gap-2 group">
-                <img src="{{ asset('image/logo-mark.png') }}" alt="MY RESILIENCE" class="w-12 h-12 rounded-xl object-cover shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform duration-300">
+                <img src="{{ asset_versioned('image/logo-mark.png') }}" alt="MY RESILIENCE" class="w-12 h-12 rounded-xl object-cover shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform duration-300">
                 <span class="text-sm font-bold text-slate-400 group-hover:text-slate-300 transition-colors uppercase tracking-widest">MY RESILIENCE</span>
             </a>
         </div>

@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'MY RESILIENCE') }} - @yield('title', 'Dashboard')</title>
     <meta name="description" content="@yield('description', 'Model Cybercounseling Berfokus Solusi Berbantuan Self-Help untuk Meningkatkan Resiliensi pada Remaja dengan Kerentanan Psikologis.')">
-    <link rel="icon" href="{{ asset('image/logo-mark.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset_versioned('image/logo-mark.png') }}" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">

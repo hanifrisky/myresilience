@@ -7,7 +7,7 @@
         <div>
             <div class="flex items-center justify-between gap-3 px-6 py-5 border-b border-slate-100">
                 <div class="flex items-center gap-3 min-w-0">
-                    <img src="{{ asset('image/logo-mark.png') }}" alt="MY RESILIENCE" class="w-10 h-10 rounded-xl object-cover shadow-sm border border-blue-100 flex-shrink-0">
+                    <img src="{{ asset_versioned('image/logo-mark.png') }}" alt="MY RESILIENCE" class="w-10 h-10 rounded-xl object-cover shadow-sm border border-blue-100 flex-shrink-0">
                     <div class="min-w-0">
                         <h1 class="font-extrabold text-base text-slate-900 leading-tight truncate">MY RESILIENCE</h1>
                         <p class="text-xs font-semibold text-blue-600 capitalize truncate">Panel {{ auth()->user()->role }}</p>

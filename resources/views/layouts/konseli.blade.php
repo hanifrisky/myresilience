@@ -7,7 +7,7 @@
         <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
             <div class="flex items-center gap-4 lg:gap-6 min-w-0">
                 <a href="{{ route('konseli.dashboard') }}" class="flex items-center gap-2 flex-shrink-0">
-                    <img src="{{ asset('image/logo-mark.png') }}" alt="MY RESILIENCE" class="w-8 h-8 rounded-lg object-cover shadow-sm">
+                    <img src="{{ asset_versioned('image/logo-mark.png') }}" alt="MY RESILIENCE" class="w-8 h-8 rounded-lg object-cover shadow-sm">
                     <span class="font-extrabold text-slate-800 text-sm sm:text-base whitespace-nowrap">MY RESILIENCE</span>
                 </a>
                 
