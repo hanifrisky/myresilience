@@ -110,7 +110,7 @@
                         <span class="text-sm font-semibold text-slate-700 hover:text-blue-600">Tambah Konselor Baru</span>
                         <svg class="w-4 h-4 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>
-                    <a href="{{ route('admin.tribes.create') }}" class="flex items-center justify-between gap-2 p-3.5 bg-slate-50 hover:bg-blue-50/50 hover:text-blue-600 rounded-2xl border border-slate-100 transition-all duration-200">
+                    <a href="{{ route('admin.modul.create') }}" class="flex items-center justify-between gap-2 p-3.5 bg-slate-50 hover:bg-blue-50/50 hover:text-blue-600 rounded-2xl border border-slate-100 transition-all duration-200">
                         <span class="text-sm font-semibold text-slate-700 hover:text-blue-600">Tambah Paket Modul Self-Help</span>
                         <svg class="w-4 h-4 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>

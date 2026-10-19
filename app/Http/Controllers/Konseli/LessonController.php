@@ -10,6 +10,10 @@ class LessonController extends Controller
 {
     public function index(Request $request)
     {
+        if (!Lesson::exists()) {
+            return redirect()->route('konseli.dashboard')->with('error', 'Belum ada materi pembelajaran yang tersedia saat ini.');
+        }
+
         $query = Lesson::with('creator')->latest();
 
         if ($request->filled('search')) {

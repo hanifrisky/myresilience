@@ -23,7 +23,7 @@ class TribeController extends Controller
     {
         $request->validate(['name' => 'required|string|max:255']);
         Tribe::create(['name' => $request->name]);
-        return redirect()->route('admin.tribes.index')
+        return redirect()->route('admin.modul.index')
             ->with('success', 'Paket Modul Self-Help berhasil ditambahkan.');
     }
 
@@ -42,14 +42,14 @@ class TribeController extends Controller
     {
         $request->validate(['name' => 'required|string|max:255']);
         $tribe->update(['name' => $request->name]);
-        return redirect()->route('admin.tribes.index')
+        return redirect()->route('admin.modul.index')
             ->with('success', 'Paket Modul Self-Help berhasil diperbarui.');
     }
 
     public function destroy(Tribe $tribe)
     {
         $tribe->delete();
-        return redirect()->route('admin.tribes.index')
+        return redirect()->route('admin.modul.index')
             ->with('success', 'Paket Modul Self-Help berhasil dihapus.');
     }
 }

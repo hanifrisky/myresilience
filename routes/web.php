@@ -50,11 +50,16 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     // Counselors
     Route::resource('counselors', \App\Http\Controllers\Admin\CounselorController::class);
 
-    // Self-Help: Tribes
-    Route::resource('tribes', \App\Http\Controllers\Admin\TribeController::class);
+    // Self-Help: Modul
+    Route::get('tribes/{path?}', function ($path = null) {
+        return redirect('/admin/modul' . ($path ? '/' . $path : ''), 301);
+    })->where('path', '.*');
+    Route::resource('modul', \App\Http\Controllers\Admin\TribeController::class)
+        ->parameters(['modul' => 'tribe']);
 
-    // Self-Help: Materials (nested under tribes)
-    Route::resource('tribes.materials', \App\Http\Controllers\Admin\MaterialController::class);
+    // Self-Help: Materials (nested under modul)
+    Route::resource('modul.materials', \App\Http\Controllers\Admin\MaterialController::class)
+        ->parameters(['modul' => 'tribe']);
 
     // Self-Help: Material Questions (nested under materials)
     Route::resource('materials.questions', \App\Http\Controllers\Admin\MaterialQuestionController::class)

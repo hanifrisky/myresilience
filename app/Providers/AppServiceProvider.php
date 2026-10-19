@@ -19,6 +19,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        \Illuminate\Support\Facades\View::composer(['layouts.konseli', 'konseli.*'], function ($view) {
+            $view->with('hasLessons', \App\Models\Lesson::exists());
+        });
     }
 }

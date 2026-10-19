@@ -42,7 +42,7 @@ class MaterialController extends Controller
             }
         }
 
-        return redirect()->route('admin.tribes.show', $tribe)
+        return redirect()->route('admin.modul.show', $tribe)
             ->with('success', 'Materi berhasil ditambahkan.');
     }
 
@@ -91,14 +91,14 @@ class MaterialController extends Controller
             }
         }
 
-        return redirect()->route('admin.tribes.show', $tribe)
+        return redirect()->route('admin.modul.show', $tribe)
             ->with('success', 'Materi berhasil diperbarui.');
     }
 
     public function destroy(Tribe $tribe, Material $material)
     {
         $material->delete();
-        return redirect()->route('admin.tribes.show', $tribe)
+        return redirect()->route('admin.modul.show', $tribe)
             ->with('success', 'Materi berhasil dihapus.');
     }
 }

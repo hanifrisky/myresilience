@@ -5,8 +5,8 @@
 
 @section('header-actions')
 <div class="flex flex-wrap items-center justify-end gap-2">
-    <a href="{{ route('admin.tribes.index') }}" class="btn-secondary px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm">Kembali</a>
-    <a href="{{ route('admin.tribes.materials.create', $tribe) }}" class="btn-primary px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm">
+    <a href="{{ route('admin.modul.index') }}" class="btn-secondary px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm">Kembali</a>
+    <a href="{{ route('admin.modul.materials.create', $tribe) }}" class="btn-primary px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm">
         <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
         Tambah Materi Baru
     </a>
@@ -26,7 +26,7 @@
                 <svg class="w-16 h-16 text-slate-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                 <h4 class="text-lg font-bold text-slate-700">Belum Ada Materi</h4>
                 <p class="text-sm text-slate-500 mt-1 mb-6">Mulai dengan menambahkan materi self-help baru pada paket {{ $tribe->name }}.</p>
-                <a href="{{ route('admin.tribes.materials.create', $tribe) }}" class="btn-primary">Tambah Materi Baru</a>
+                <a href="{{ route('admin.modul.materials.create', $tribe) }}" class="btn-primary">Tambah Materi Baru</a>
             </div>
         @else
             <div class="space-y-6">
@@ -44,10 +44,10 @@
                                 @endif
                             </div>
                             <div class="flex flex-wrap items-center gap-2 flex-shrink-0">
-                                <a href="{{ route('admin.tribes.materials.edit', [$tribe, $material]) }}" class="btn-secondary btn-sm">
+                                <a href="{{ route('admin.modul.materials.edit', [$tribe, $material]) }}" class="btn-secondary btn-sm">
                                     Edit Materi & Soal
                                 </a>
-                                <form action="{{ route('admin.tribes.materials.destroy', [$tribe, $material]) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus materi ini?')">
+                                <form action="{{ route('admin.modul.materials.destroy', [$tribe, $material]) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus materi ini?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn-danger btn-sm">

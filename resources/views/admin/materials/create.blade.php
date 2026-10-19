@@ -8,10 +8,10 @@
     <div class="card p-4 sm:p-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
             <h3 class="font-bold text-slate-800 text-lg">Materi Baru — {{ $tribe->name }}</h3>
-            <a href="{{ route('admin.tribes.show', $tribe) }}" class="text-sm text-slate-500 hover:text-blue-600 transition-colors">Kembali ke Paket Modul</a>
+            <a href="{{ route('admin.modul.show', $tribe) }}" class="text-sm text-slate-500 hover:text-blue-600 transition-colors">Kembali ke Paket Modul</a>
         </div>
 
-        <form action="{{ route('admin.tribes.materials.store', $tribe) }}" method="POST" class="space-y-6">
+        <form action="{{ route('admin.modul.materials.store', $tribe) }}" method="POST" class="space-y-6">
             @csrf
 
             <!-- Section 1: Detail Materi -->
@@ -294,7 +294,7 @@
 
             <!-- Submit Button -->
             <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3 justify-end">
-                <a href="{{ route('admin.tribes.show', $tribe) }}" class="btn-secondary">Batal</a>
+                <a href="{{ route('admin.modul.show', $tribe) }}" class="btn-secondary">Batal</a>
                 <button type="submit" class="btn-primary">Simpan Materi</button>
             </div>
         </form>

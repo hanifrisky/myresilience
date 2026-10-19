@@ -17,7 +17,9 @@
                     <a href="{{ route('konseli.counselor.index') }}" class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('konseli.counselor.*') ? 'text-blue-600' : 'text-slate-500 hover:text-slate-800' }}">Pilih Konselor</a>
                     <a href="{{ route('konseli.wellbeing.index') }}" class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('konseli.wellbeing.*') ? 'text-blue-600' : 'text-slate-500 hover:text-slate-800' }}">Resiliensi</a>
                     <a href="{{ route('konseli.tribe.index') }}" class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('konseli.tribe.*', 'konseli.self-help.*') ? 'text-blue-600' : 'text-slate-500 hover:text-slate-800' }}">Self-Help</a>
+                    @if($hasLessons ?? \App\Models\Lesson::exists())
                     <a href="{{ route('konseli.lessons.index') }}" class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('konseli.lessons.*') ? 'text-blue-600' : 'text-slate-500 hover:text-slate-800' }}">Materi</a>
+                    @endif
                     <a href="{{ route('konseli.profile.edit') }}" class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('konseli.profile.*') ? 'text-blue-600' : 'text-slate-500 hover:text-slate-800' }}">Profil</a>
                 </nav>
             </div>
@@ -55,8 +57,11 @@
     </main>
 
     {{-- Bottom Navigation (Mobile & Portrait Tablet) --}}
+    @php
+        $showMateriNav = $hasLessons ?? \App\Models\Lesson::exists();
+    @endphp
     <nav class="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-200 md:hidden z-30 safe-bottom shadow-[0_-4px_16px_rgba(15,23,42,0.04)]">
-        <div class="grid grid-cols-6 gap-0.5 sm:gap-1 px-1 sm:px-3 py-2 max-w-lg mx-auto">
+        <div class="grid {{ $showMateriNav ? 'grid-cols-6' : 'grid-cols-5' }} gap-0.5 sm:gap-1 px-1 sm:px-3 py-2 max-w-lg mx-auto">
             <a href="{{ route('konseli.dashboard') }}" class="flex flex-col items-center justify-center gap-1 py-1 px-0.5 text-[10px] sm:text-xs font-medium min-w-0 {{ request()->routeIs('konseli.dashboard') ? 'text-blue-600 font-bold' : 'text-slate-400 hover:text-slate-600' }}">
                 <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                 <span class="truncate max-w-full">Beranda</span>
@@ -73,10 +78,12 @@
                 <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                 <span class="truncate max-w-full">Self-Help</span>
             </a>
+            @if($showMateriNav)
             <a href="{{ route('konseli.lessons.index') }}" class="flex flex-col items-center justify-center gap-1 py-1 px-0.5 text-[10px] sm:text-xs font-medium min-w-0 {{ request()->routeIs('konseli.lessons.*') ? 'text-blue-600 font-bold' : 'text-slate-400 hover:text-slate-600' }}">
                 <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                 <span class="truncate max-w-full">Materi</span>
             </a>
+            @endif
             <a href="{{ route('konseli.profile.edit') }}" class="flex flex-col items-center justify-center gap-1 py-1 px-0.5 text-[10px] sm:text-xs font-medium min-w-0 {{ request()->routeIs('konseli.profile.*') ? 'text-blue-600 font-bold' : 'text-slate-400 hover:text-slate-600' }}">
                 <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                 <span class="truncate max-w-full">Profil</span>
