@@ -21,12 +21,16 @@ class ProfileController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
+            'school' => 'nullable|string|max:255',
+            'class' => 'nullable|string|max:255',
             'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
+            'school' => $request->school,
+            'class' => $request->class,
             ...(($request->password) ? ['password' => Hash::make($request->password)] : []),
         ]);
 

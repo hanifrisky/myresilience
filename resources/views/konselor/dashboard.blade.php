@@ -76,6 +76,13 @@
                                 <td class="py-4">
                                     <h5 class="font-extrabold text-slate-800 text-sm">{{ $konseli->name }}</h5>
                                     <p class="text-xs text-slate-400 mt-0.5">{{ $konseli->email }}</p>
+                                    @if($konseli->school || $konseli->class)
+                                        <div class="mt-1">
+                                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">
+                                                {{ $konseli->school ?? '-' }}{{ $konseli->class ? ' • Kelas ' . $konseli->class : '' }}
+                                            </span>
+                                        </div>
+                                    @endif
                                 </td>
                                 <td class="text-center whitespace-nowrap">
                                     @if($konseli->pre_test)

@@ -10,6 +10,29 @@
 @section('content')
 <div class="space-y-8 animate-fade-in pb-16">
     
+    {{-- Konseli Info Header --}}
+    <div class="card p-4 sm:p-5 bg-white border border-slate-200/80 flex flex-wrap items-center justify-between gap-4">
+        <div>
+            <div class="flex items-center gap-2">
+                <h3 class="font-extrabold text-slate-800 text-base sm:text-lg">{{ $user->name }}</h3>
+                <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-0.5 rounded-full font-bold border border-blue-100">Konseli</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-0.5">{{ $user->email }}</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600">
+            @if($user->school)
+                <span class="bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl">
+                    Sekolah: <strong class="text-slate-800">{{ $user->school }}</strong>
+                </span>
+            @endif
+            @if($user->class)
+                <span class="bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl">
+                    Kelas: <strong class="text-slate-800">{{ $user->class }}</strong>
+                </span>
+            @endif
+        </div>
+    </div>
+
     {{-- Comparison Grid --}}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         

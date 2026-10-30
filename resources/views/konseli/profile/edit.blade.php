@@ -41,6 +41,34 @@
                 @enderror
             </div>
 
+            <!-- School & Class -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label for="school" class="form-label">Asal Sekolah</label>
+                    <input type="text" 
+                           id="school" 
+                           name="school" 
+                           value="{{ old('school', $user->school) }}" 
+                           class="form-input" 
+                           placeholder="cth. SMA Negeri 1 Malang" />
+                    @error('school')
+                        <p class="form-error">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label for="class" class="form-label">Kelas</label>
+                    <input type="text" 
+                           id="class" 
+                           name="class" 
+                           value="{{ old('class', $user->class) }}" 
+                           class="form-input" 
+                           placeholder="cth. XI MIPA 2" />
+                    @error('class')
+                        <p class="form-error">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
+
             <!-- Password change block -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-slate-50 border border-slate-100 rounded-2xl sm:rounded-3xl">
                 <div class="col-span-1 sm:col-span-2">

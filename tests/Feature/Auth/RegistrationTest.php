@@ -28,4 +28,23 @@ class RegistrationTest extends TestCase
         $this->assertAuthenticated();
         $response->assertRedirect(route('dashboard', absolute: false));
     }
+
+    public function test_new_users_can_register_with_school_and_class(): void
+    {
+        $response = $this->post('/register', [
+            'name' => 'Konseli User',
+            'email' => 'konseli@example.com',
+            'school' => 'SMA Negeri 1 Malang',
+            'class' => 'XI MIPA 2',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+        ]);
+
+        $this->assertAuthenticated();
+        $user = \App\Models\User::where('email', 'konseli@example.com')->first();
+        $this->assertNotNull($user);
+        $this->assertSame('SMA Negeri 1 Malang', $user->school);
+        $this->assertSame('XI MIPA 2', $user->class);
+        $response->assertRedirect(route('dashboard', absolute: false));
+    }
 }

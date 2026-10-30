@@ -27,7 +27,13 @@
                     Hasil Pengukuran Resiliensi
                 </span>
                 <h2 class="text-xl sm:text-2xl font-extrabold text-slate-800 mt-3">Hasil {{ str_replace('_', ' ', strtoupper($answer->type)) }} Resiliensi</h2>
-                <p class="text-xs text-slate-400 mt-1">Nama Pengisi: <strong class="text-slate-600">{{ $answer->konseli_name }}</strong> &bull; Selesai Pada: {{ $answer->completed_at->format('d M Y H:i') }}</p>
+                <p class="text-xs text-slate-400 mt-1">
+                    Nama Pengisi: <strong class="text-slate-600">{{ $answer->konseli_name }}</strong>
+                    @if($answer->konseli?->school || $answer->konseli?->class)
+                        &bull; {{ $answer->konseli->school ?? '-' }}{{ $answer->konseli->class ? ' (' . $answer->konseli->class . ')' : '' }}
+                    @endif
+                    &bull; Selesai Pada: {{ $answer->completed_at->format('d M Y H:i') }}
+                </p>
             </div>
 
             {{-- Circular score display --}}

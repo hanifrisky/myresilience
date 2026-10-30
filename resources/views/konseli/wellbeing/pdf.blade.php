@@ -268,6 +268,12 @@
             <td class="meta-val meta-border-bottom">{{ strtoupper(str_replace('_', ' ', $type)) }}</td>
         </tr>
         <tr>
+            <td class="meta-label meta-border-bottom meta-border-right">Asal Sekolah</td>
+            <td class="meta-val meta-border-bottom meta-border-right">{{ $answer->konseli?->school ?: '-' }}</td>
+            <td class="meta-label meta-border-bottom">Kelas</td>
+            <td class="meta-val meta-border-bottom">{{ $answer->konseli?->class ?: '-' }}</td>
+        </tr>
+        <tr>
             <td class="meta-label meta-border-right">Tanggal Pengisian</td>
             <td class="meta-val meta-border-right">{{ $answer->completed_at->format('d F Y') }}</td>
             <td class="meta-label">Waktu Selesai</td>

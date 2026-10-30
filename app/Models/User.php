@@ -20,6 +20,8 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'school',
+        'class',
         'selected_counselor_id',
         'selected_tribe_id',
     ];

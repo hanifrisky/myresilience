@@ -36,6 +36,31 @@
             <x-input-error :messages="$errors->get('email')" class="mt-1" />
         </div>
 
+        <!-- School & Class -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+                <label for="school" class="form-label">Asal Sekolah</label>
+                <input id="school" 
+                       type="text" 
+                       name="school" 
+                       value="{{ old('school') }}" 
+                       class="form-input"
+                       placeholder="cth. SMA Negeri 1 Malang" />
+                <x-input-error :messages="$errors->get('school')" class="mt-1" />
+            </div>
+
+            <div>
+                <label for="class" class="form-label">Kelas</label>
+                <input id="class" 
+                       type="text" 
+                       name="class" 
+                       value="{{ old('class') }}" 
+                       class="form-input"
+                       placeholder="cth. XI MIPA 2" />
+                <x-input-error :messages="$errors->get('class')" class="mt-1" />
+            </div>
+        </div>
+
         <!-- Password -->
         <div>
             <label for="password" class="form-label">Kata Sandi</label>

@@ -21,7 +21,9 @@ class UserController extends Controller
         if ($request->filled('search')) {
             $query->where(function ($q) use ($request) {
                 $q->where('name', 'like', "%{$request->search}%")
-                  ->orWhere('email', 'like', "%{$request->search}%");
+                  ->orWhere('email', 'like', "%{$request->search}%")
+                  ->orWhere('school', 'like', "%{$request->search}%")
+                  ->orWhere('class', 'like', "%{$request->search}%");
             });
         }
 
@@ -40,6 +42,8 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'role' => 'required|in:admin,konselor,konseli',
+            'school' => 'nullable|string|max:255',
+            'class' => 'nullable|string|max:255',
             'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -47,6 +51,8 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
+            'school' => $request->school,
+            'class' => $request->class,
             ...(($request->password) ? ['password' => Hash::make($request->password)] : []),
         ]);
 

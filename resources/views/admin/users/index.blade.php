@@ -60,7 +60,14 @@
                     <tbody class="divide-y divide-slate-100">
                         @foreach($users as $user)
                             <tr class="text-slate-600">
-                                <td class="font-bold text-slate-800 py-3.5 whitespace-nowrap">{{ $user->name }}</td>
+                                <td class="font-bold text-slate-800 py-3.5 whitespace-nowrap">
+                                    <div>{{ $user->name }}</div>
+                                    @if($user->school || $user->class)
+                                        <div class="text-xs font-normal text-slate-400 mt-0.5">
+                                            {{ $user->school ?? '-' }} {{ $user->class ? '• Kelas ' . $user->class : '' }}
+                                        </div>
+                                    @endif
+                                </td>
                                 <td class="whitespace-nowrap">{{ $user->email }}</td>
                                 <td class="whitespace-nowrap">
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold {{ $user->role === 'admin' ? 'bg-rose-100 text-rose-800' : ($user->role === 'konselor' ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800') }}">

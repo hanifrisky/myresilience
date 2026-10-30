@@ -58,6 +58,34 @@
                 @enderror
             </div>
 
+            <!-- School & Class -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label for="school" class="form-label">Asal Sekolah</label>
+                    <input type="text" 
+                           id="school" 
+                           name="school" 
+                           value="{{ old('school', $user->school) }}" 
+                           class="form-input" 
+                           placeholder="Asal sekolah..." />
+                    @error('school')
+                        <p class="form-error">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label for="class" class="form-label">Kelas</label>
+                    <input type="text" 
+                           id="class" 
+                           name="class" 
+                           value="{{ old('class', $user->class) }}" 
+                           class="form-input" 
+                           placeholder="Kelas..." />
+                    @error('class')
+                        <p class="form-error">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
+
             <!-- Passwords -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
                 <div class="sm:col-span-2 mb-2">

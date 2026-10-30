@@ -138,7 +138,7 @@ class WellbeingController extends Controller
         $answer = WellbeingAnswer::where('konseli_id', $user->id)
             ->where('type', $type)
             ->where('status', 'completed')
-            ->with(['details.question', 'details.selectedOption', 'interpretation'])
+            ->with(['details.question', 'details.selectedOption', 'interpretation', 'konseli'])
             ->firstOrFail();
 
         return view('konseli.wellbeing.result', compact('type', 'answer'));
@@ -152,7 +152,7 @@ class WellbeingController extends Controller
         $answer = WellbeingAnswer::where('konseli_id', $user->id)
             ->where('type', $type)
             ->where('status', 'completed')
-            ->with(['details.question', 'details.selectedOption', 'interpretation'])
+            ->with(['details.question', 'details.selectedOption', 'interpretation', 'konseli'])
             ->firstOrFail();
 
         $filename = "resiliensi_{$type}_{$user->id}.pdf";

@@ -28,7 +28,7 @@
                 </span>
                 <h3 class="font-extrabold text-slate-800 text-lg">{{ $tribe->name }}</h3>
             </div>
-            <p class="text-sm text-slate-500 mt-1.5">Berikut adalah jawaban-jawaban eksplorasi solusi berbasis <em>Solution-Focused Brief Counseling</em> (SFBC) yang telah dituliskan oleh konseli <strong>{{ $user->name }}</strong>.</p>
+            <p class="text-sm text-slate-500 mt-1.5">Berikut adalah jawaban-jawaban eksplorasi solusi berbasis <em>Solution-Focused Brief Counseling</em> (SFBC) yang telah dituliskan oleh konseli <strong>{{ $user->name }}</strong>@if($user->school || $user->class) ({{ $user->school ?? '-' }}{{ $user->class ? ' • Kelas ' . $user->class : '' }})@endif.</p>
         </div>
 
         @if($materials->isEmpty())

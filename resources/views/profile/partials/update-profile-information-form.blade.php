@@ -47,6 +47,18 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="school" :value="__('Asal Sekolah')" />
+            <x-text-input id="school" name="school" type="text" class="mt-1 block w-full" :value="old('school', $user->school)" autocomplete="organization" />
+            <x-input-error class="mt-2" :messages="$errors->get('school')" />
+        </div>
+
+        <div>
+            <x-input-label for="class" :value="__('Kelas')" />
+            <x-text-input id="class" name="class" type="text" class="mt-1 block w-full" :value="old('class', $user->class)" />
+            <x-input-error class="mt-2" :messages="$errors->get('class')" />
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
